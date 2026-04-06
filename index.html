@@ -11,11 +11,16 @@
             color: white;
         }
 
+        /* NAVBAR FIXE */
         .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
             display: flex;
             justify-content: flex-end;
             padding: 20px 50px;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
         }
 
         .menu a {
@@ -24,8 +29,7 @@
         }
 
         button {
-            padding: 12px 20px;
-            font-size: 16px;
+            padding: 10px 15px;
             border: none;
             background: #3b82f6;
             color: white;
@@ -35,7 +39,7 @@
 
         .page {
             display: none;
-            padding: 80px 100px;
+            padding: 120px 100px 40px;
         }
 
         .active {
@@ -46,7 +50,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-height: 80vh;
+            min-height: 70vh;
         }
 
         .left {
@@ -58,31 +62,25 @@
         }
 
         .right img {
-            width: 260px;
+            width: 250px;
             border-radius: 50%;
             box-shadow: 0 0 20px #3b82f6;
         }
 
         h1 {
-            font-size: 60px;
+            font-size: 55px;
         }
 
         h1 span {
             color: #3b82f6;
         }
 
-        .name {
-            margin-top: 10px;
-            font-size: 20px;
-        }
-
         #desc {
             color: #94a3b8;
-            line-height: 1.6;
             font-size: 18px;
         }
 
-        /* CONTACT FORM */
+        /* FORM */
         input, textarea {
             width: 100%;
             padding: 10px;
@@ -91,13 +89,8 @@
             border: none;
         }
 
-        textarea {
-            height: 120px;
-        }
-
         .whatsapp {
             background: #25D366;
-            margin-top: 10px;
         }
     </style>
 
@@ -121,17 +114,7 @@
                 document.getElementById('title').innerHTML = "Ingénieur <span>IA</span>";
 
                 document.getElementById('desc').innerHTML =
-                "Création de solutions intelligentes et systèmes basés sur l'IA.<br>Spécialisé en Machine Learning, Data Science et technologies modernes.";
-
-                document.getElementById('workBtn').innerText = "Travailler avec moi";
-                document.getElementById('resumeBtn').innerText = "CV";
-
-                document.getElementById('contactTitle').innerText = "Envoyer un message";
-                document.getElementById('nameInput').placeholder = "Votre nom";
-                document.getElementById('emailInput').placeholder = "Votre email";
-                document.getElementById('subjectInput').placeholder = "Sujet";
-                document.getElementById('messageInput').placeholder = "Votre message";
-                document.getElementById('sendBtn').innerText = "Envoyer";
+                "Création de solutions intelligentes et systèmes IA.";
 
             } else {
                 document.getElementById('homeBtn').innerText = "Home";
@@ -143,17 +126,7 @@
                 document.getElementById('title').innerHTML = "AI <span>Engineer</span>";
 
                 document.getElementById('desc').innerHTML =
-                "Building intelligent systems and AI-powered solutions.<br>Specialized in Machine Learning, Data Science, and modern technologies.";
-
-                document.getElementById('workBtn').innerText = "Work With Me";
-                document.getElementById('resumeBtn').innerText = "Resume";
-
-                document.getElementById('contactTitle').innerText = "Send Message";
-                document.getElementById('nameInput').placeholder = "Your Name";
-                document.getElementById('emailInput').placeholder = "Your Email";
-                document.getElementById('subjectInput').placeholder = "Subject";
-                document.getElementById('messageInput').placeholder = "Your Message";
-                document.getElementById('sendBtn').innerText = "Send";
+                "Building intelligent AI systems and solutions.";
             }
         }
 
@@ -166,7 +139,6 @@
 <body>
 
 <div class="navbar">
-
     <div class="menu">
         <a onclick="showPage('home')" id="homeBtn">Home</a>
         <a onclick="showPage('about')" id="aboutBtn">About</a>
@@ -179,50 +151,64 @@
         <button onclick="setLanguage('fr')">FR</button>
         <button onclick="setLanguage('en')">EN</button>
     </div>
-
 </div>
 
 <!-- HOME -->
-<div id="home" class="page">
+<div id="home" class="page active">
     <div class="home-container">
 
         <div class="left">
             <h1 id="title">AI <span>Engineer</span></h1>
 
             <p id="desc">
-                Building intelligent systems and AI-powered solutions.<br>
-                Specialized in Machine Learning, Data Science, and modern technologies.
+                Building intelligent AI systems and solutions.
             </p>
 
             <p>📍 Djibouti</p>
 
-            <br>
-            <button id="workBtn">Work With Me</button>
-            <button id="resumeBtn">Resume</button>
+            <button>Work With Me</button>
+            <button>Resume</button>
         </div>
 
         <div class="right">
             <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg">
-            <h3 class="name">Haroum Abdoulkader</h3>
+            <h3>Haroum Abdoulkader</h3>
         </div>
 
     </div>
 </div>
 
+<!-- ABOUT -->
+<div id="about" class="page">
+    <h2>About</h2>
+    <p>I am an AI Engineer passionate about building intelligent systems.</p>
+</div>
+
+<!-- SKILLS -->
+<div id="skills" class="page">
+    <h2>Skills</h2>
+    <p>Python, Machine Learning, Data Science, AI</p>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" class="page">
+    <h2>Projects</h2>
+    <p>AI Project 1, AI Project 2</p>
+</div>
+
 <!-- CONTACT -->
 <div id="contact" class="page">
-    <h2 id="contactTitle">Send Message</h2>
+    <h2>Send Message</h2>
 
-    <input type="text" id="nameInput" placeholder="Your Name">
-    <input type="email" id="emailInput" placeholder="Your Email">
-    <input type="text" id="subjectInput" placeholder="Subject">
-    <textarea id="messageInput" placeholder="Your Message"></textarea>
+    <input placeholder="Your Name">
+    <input placeholder="Your Email">
+    <input placeholder="Subject">
+    <textarea placeholder="Your Message"></textarea>
 
-    <button id="sendBtn">Send</button>
+    <button>Send</button>
 
     <br><br>
 
-    <!-- WHATSAPP -->
     <a href="https://wa.me/253XXXXXXXX" target="_blank">
         <button class="whatsapp">WhatsApp</button>
     </a>
