@@ -63,7 +63,8 @@ body {
 
 .hero {
     padding: 20px;
-    height: 100vh;
+    min-height: 100vh;
+    text-align: center;
 
     background-image: linear-gradient(#00bfff22 1px, transparent 1px),
                       linear-gradient(90deg, #00bfff22 1px, transparent 1px);
@@ -106,15 +107,16 @@ h1 {
     background: transparent;
 }
 
+/* CENTER IMAGE */
 .profile {
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .profile img {
-    width: 150px;
+    width: 180px;
     border-radius: 50%;
     border: 2px solid #00bfff;
-    box-shadow: 0 0 20px #00bfff;
+    box-shadow: 0 0 25px #00bfff;
 }
 
 section {
@@ -163,8 +165,22 @@ function scrollToSection(id) {
 function setLang(lang) {
     if(lang === 'FR') {
         document.getElementById('title').innerText = "Salut, je suis";
+        document.getElementById('aboutText').innerText = "À propos de moi";
+        document.getElementById('eduText').innerText = "Éducation";
+        document.getElementById('skillsText').innerText = "Compétences";
+        document.getElementById('langText').innerText = "Langues";
+        document.getElementById('contactText').innerText = "Contact";
+        document.getElementById('btn1').innerText = "CV";
+        document.getElementById('btn2').innerText = "Contactez-moi";
     } else {
         document.getElementById('title').innerText = "Hi, I'm";
+        document.getElementById('aboutText').innerText = "About Me";
+        document.getElementById('eduText').innerText = "Education";
+        document.getElementById('skillsText').innerText = "Skills";
+        document.getElementById('langText').innerText = "Languages";
+        document.getElementById('contactText').innerText = "Contact";
+        document.getElementById('btn1').innerText = "Resume";
+        document.getElementById('btn2').innerText = "Get In Touch";
     }
 }
 </script>
@@ -212,34 +228,38 @@ function setLang(lang) {
     </p>
 
     <div class="buttons">
-        <button class="btn primary">Resume</button>
-        <button class="btn secondary">Get In Touch</button>
+        <button id="btn1" class="btn primary">Resume</button>
+        <button id="btn2" class="btn secondary">Get In Touch</button>
+    </div>
+
+    <div class="profile">
+        <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg">
     </div>
 
 </div>
 
 <section id="about">
-    <h2>About Me</h2>
+    <h2 id="aboutText">About Me</h2>
     <p>AI Engineer passionate about intelligent systems.</p>
 </section>
 
 <section id="education">
-    <h2>Education</h2>
+    <h2 id="eduText">Education</h2>
     <p>Your education details here.</p>
 </section>
 
 <section id="skills">
-    <h2>Skills</h2>
+    <h2 id="skillsText">Skills</h2>
     <p>Python, Machine Learning, AI, Web Development</p>
 </section>
 
 <section id="languages">
-    <h2>Languages</h2>
+    <h2 id="langText">Languages</h2>
     <p>French, English</p>
 </section>
 
 <section id="contact">
-    <h2>Contact</h2>
+    <h2 id="contactText">Contact</h2>
     <p>Email: haroumadoita@gmail.com</p>
     <input type="text" placeholder="Your Name">
     <input type="email" placeholder="Your Email">
