@@ -8,7 +8,7 @@ body {
     margin: 0;
     font-family: 'Courier New', monospace;
     background: #020617;
-    color: #3b82f6;
+    color: #00ff9f;
 }
 
 /* NAVBAR */
@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    border-bottom: 1px solid #3b82f6;
+    border-bottom: 1px solid #00ff9f;
     align-items: center;
 }
 
@@ -24,13 +24,6 @@ body {
     font-weight: bold;
 }
 
-/* MENU TOP */
-.top-menu a {
-    margin: 0 10px;
-    cursor: pointer;
-}
-
-/* RIGHT */
 .right-menu {
     display: flex;
     align-items: center;
@@ -38,11 +31,10 @@ body {
 
 .lang button {
     background: transparent;
-    border: 1px solid #3b82f6;
-    color: #3b82f6;
+    border: 1px solid #00ff9f;
+    color: #00ff9f;
     margin-right: 10px;
     padding: 5px 10px;
-    cursor: pointer;
 }
 
 /* MENU 3 POINTS */
@@ -51,13 +43,13 @@ body {
     cursor: pointer;
 }
 
-/* DROPDOWN */
+/* MENU VERTICAL */
 .dropdown {
     position: absolute;
     top: 70px;
     right: 20px;
     background: #020617;
-    border: 1px solid #3b82f6;
+    border: 1px solid #00ff9f;
     display: none;
     flex-direction: column;
 }
@@ -68,7 +60,7 @@ body {
 }
 
 .dropdown a:hover {
-    background: #3b82f6;
+    background: #00ff9f;
     color: black;
 }
 
@@ -77,8 +69,8 @@ body {
     padding: 50px;
     min-height: 100vh;
 
-    background-image: linear-gradient(#3b82f622 1px, transparent 1px),
-                      linear-gradient(90deg, #3b82f622 1px, transparent 1px);
+    background-image: linear-gradient(#00ff9f22 1px, transparent 1px),
+                      linear-gradient(90deg, #00ff9f22 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
@@ -87,7 +79,7 @@ h1 {
 }
 
 .highlight {
-    color: #3b82f6;
+    color: #00ff9f;
 }
 
 .white {
@@ -111,13 +103,13 @@ h1 {
 }
 
 .primary {
-    background: #3b82f6;
+    background: #00ff9f;
     color: black;
 }
 
 .secondary {
-    border: 1px solid #3b82f6;
-    color: #3b82f6;
+    border: 1px solid #00ff9f;
+    color: #00ff9f;
     background: transparent;
 }
 
@@ -129,8 +121,8 @@ h1 {
 .profile img {
     width: 150px;
     border-radius: 50%;
-    border: 2px solid #3b82f6;
-    box-shadow: 0 0 20px #3b82f6;
+    border: 2px solid #00ff9f;
+    box-shadow: 0 0 20px #00ff9f;
 }
 </style>
 
@@ -140,66 +132,8 @@ function toggleMenu() {
     menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
 }
 
-function showSection(id) {
-    let sections = document.querySelectorAll(".hero");
-    sections.forEach(sec => sec.style.display = "none");
-
-    document.getElementById(id).style.display = "block";
-
-    document.getElementById("dropdown").style.display = "none";
-}
-
-/* TRANSLATE */
-function setLanguage(lang) {
-
-    if (lang === "fr") {
-
-        document.getElementById("title").innerHTML =
-        "Salut, je suis <span class='highlight'>Haroum Abdoulkader</span><br><span class='white'>Ingénieur IA</span>";
-
-        document.getElementById("desc").innerHTML =
-        "Ingénieur en Intelligence Artificielle basé à Djibouti";
-
-        document.getElementById("about").innerHTML =
-        "Passionné par l’intelligence artificielle et les systèmes intelligents.";
-
-        document.getElementById("skills").innerHTML =
-        "Python, Machine Learning, Intelligence Artificielle";
-
-        document.getElementById("projects").innerHTML =
-        "Projet IA 1, Projet IA 2";
-
-        document.getElementById("contact").innerHTML =
-        "Email: haroumadoita@gmail.com";
-
-    } else {
-
-        document.getElementById("title").innerHTML =
-        "Hi, I'm <span class='highlight'>Haroum Abdoulkader</span><br><span class='white'>AI Engineer</span>";
-
-        document.getElementById("desc").innerHTML =
-        "AI Engineer based in Djibouti";
-
-        document.getElementById("about").innerHTML =
-        "Passionate about artificial intelligence and intelligent systems.";
-
-        document.getElementById("skills").innerHTML =
-        "Python, Machine Learning, Artificial Intelligence";
-
-        document.getElementById("projects").innerHTML =
-        "AI Project 1, AI Project 2";
-
-        document.getElementById("contact").innerHTML =
-        "Email: haroumadoita@gmail.com";
-    }
-}
-
-/* LOAD HOME */
-window.onload = function() {
-    let sections = document.querySelectorAll(".hero");
-    sections.forEach(sec => sec.style.display = "none");
-
-    document.getElementById("home").style.display = "block";
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
 </script>
 
@@ -207,71 +141,75 @@ window.onload = function() {
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo">AAM_</div>
 
-    <!-- MENU HAUT -->
-    <div class="top-menu">
-        <a onclick="showSection('home')">Home</a>
-        <a onclick="showSection('about')">About</a>
-        <a onclick="showSection('skills')">Skills</a>
-        <a onclick="showSection('projects')">Projects</a>
-        <a onclick="showSection('contact')">Contact</a>
-    </div>
-
     <div class="right-menu">
         <div class="lang">
-            <button onclick="setLanguage('fr')">FR</button>
-            <button onclick="setLanguage('en')">EN</button>
+            <button>FR</button>
+            <button>EN</button>
         </div>
 
         <div class="menu-btn" onclick="toggleMenu()">⋮</div>
     </div>
 </div>
 
-<!-- MENU 3 POINTS -->
+<!-- MENU VERTICAL -->
 <div id="dropdown" class="dropdown">
-    <a onclick="showSection('home')">Home</a>
-    <a onclick="showSection('about')">About</a>
-    <a onclick="showSection('skills')">Skills</a>
-    <a onclick="showSection('projects')">Projects</a>
-    <a onclick="showSection('contact')">Contact</a>
+    <a onclick="scrollToSection('about')">About</a>
+    <a onclick="scrollToSection('skills')">Skills</a>
+    <a onclick="scrollToSection('projects')">Projects</a>
+    <a onclick="scrollToSection('contact')">Contact</a>
 </div>
 
-<!-- HOME -->
-<div id="home" class="hero">
-    <h1 id="title">
-        Hi, I'm <span class="highlight">Haroum Abdoulkader</span><br>
-        <span class="white">AI Engineer</span>
+<!-- HERO -->
+<div class="hero">
+
+    <p>// AVAILABLE FOR OPPORTUNITIES</p>
+
+    <h1>
+        Hi, I'm <br>
+        <span class="highlight">Haroum Abdoulkader</span><br>
+        <span class="white">AI Engineer.</span>
     </h1>
 
-    <p id="desc">
-        AI Engineer based in Djibouti
+    <p class="desc">
+        AI Engineer & Developer<br>
+        Specializing in AI, Machine Learning<br>
+        Based in Djibouti – Open to work
     </p>
+
+    <div class="buttons">
+        <button class="btn primary">Resume</button>
+        <button class="btn secondary">Get In Touch</button>
+    </div>
 
     <div class="profile">
         <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg">
     </div>
+
 </div>
 
-<!-- ABOUT -->
+<!-- SECTIONS -->
 <div id="about" class="hero">
-    Passionate about AI.
+    <h2>About</h2>
+    <p>AI Engineer passionate about intelligent systems.</p>
 </div>
 
-<!-- SKILLS -->
 <div id="skills" class="hero">
-    Python, Machine Learning, AI
+    <h2>Skills</h2>
+    <p>Python, Machine Learning, AI</p>
 </div>
 
-<!-- PROJECTS -->
 <div id="projects" class="hero">
-    Project 1, Project 2
+    <h2>Projects</h2>
+    <p>Project 1, Project 2</p>
 </div>
 
-<!-- CONTACT -->
 <div id="contact" class="hero">
-    Email: haroumadoita@gmail.com
+    <h2>Contact</h2>
+    <p>Email: haroumadoita@gmail.com</p>
 </div>
 
 </body>
