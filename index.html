@@ -3,12 +3,16 @@
 <head>
 <title>Cyber Portfolio</title>
 
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 body {
     margin: 0;
-    font-family: 'Courier New', monospace;
+    font-family: 'Orbitron', sans-serif;
     background: #020617;
     color: #00ff9f;
+    overflow-x: hidden;
 }
 
 /* NAVBAR */
@@ -22,6 +26,7 @@ body {
 
 .logo {
     font-weight: bold;
+    font-size: 22px;
 }
 
 .right-menu {
@@ -37,16 +42,16 @@ body {
     padding: 5px 10px;
 }
 
-/* MENU 3 POINTS */
+/* BIGGER 3 DOT MENU */
 .menu-btn {
-    font-size: 25px;
+    font-size: 40px;
     cursor: pointer;
 }
 
-/* MENU VERTICAL */
+/* MENU */
 .dropdown {
     position: absolute;
-    top: 70px;
+    top: 80px;
     right: 20px;
     background: #020617;
     border: 1px solid #00ff9f;
@@ -55,8 +60,9 @@ body {
 }
 
 .dropdown a {
-    padding: 10px 20px;
+    padding: 15px 25px;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .dropdown a:hover {
@@ -64,18 +70,23 @@ body {
     color: black;
 }
 
-/* HERO */
+/* HERO FULL SCREEN */
 .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 50px;
-    min-height: 100vh;
 
     background-image: linear-gradient(#00ff9f22 1px, transparent 1px),
                       linear-gradient(90deg, #00ff9f22 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
+/* HUGE TEXT */
 h1 {
-    font-size: 45px;
+    font-size: 90px;
+    line-height: 1.1;
 }
 
 .highlight {
@@ -89,17 +100,18 @@ h1 {
 .desc {
     color: #94a3b8;
     margin-top: 20px;
+    font-size: 22px;
 }
 
-/* BUTTONS */
 .buttons {
     margin-top: 30px;
 }
 
 .btn {
-    padding: 15px 25px;
+    padding: 18px 30px;
     margin-right: 10px;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .primary {
@@ -113,16 +125,20 @@ h1 {
     background: transparent;
 }
 
-/* IMAGE */
 .profile {
     margin-top: 50px;
 }
 
 .profile img {
-    width: 150px;
+    width: 180px;
     border-radius: 50%;
     border: 2px solid #00ff9f;
-    box-shadow: 0 0 20px #00ff9f;
+    box-shadow: 0 0 25px #00ff9f;
+}
+
+section {
+    height: 100vh;
+    padding: 50px;
 }
 </style>
 
@@ -141,7 +157,6 @@ function scrollToSection(id) {
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo">AAM_</div>
 
@@ -155,7 +170,6 @@ function scrollToSection(id) {
     </div>
 </div>
 
-<!-- MENU VERTICAL -->
 <div id="dropdown" class="dropdown">
     <a onclick="scrollToSection('about')">About</a>
     <a onclick="scrollToSection('skills')">Skills</a>
@@ -163,7 +177,6 @@ function scrollToSection(id) {
     <a onclick="scrollToSection('contact')">Contact</a>
 </div>
 
-<!-- HERO -->
 <div class="hero">
 
     <p>// AVAILABLE FOR OPPORTUNITIES</p>
@@ -171,46 +184,41 @@ function scrollToSection(id) {
     <h1>
         Hi, I'm <br>
         <span class="highlight">Haroum Abdoulkader</span><br>
-        <span class="white">AI Engineer.</span>
+        <span class="white">AI Engineer</span>
     </h1>
 
     <p class="desc">
         AI Engineer & Developer<br>
-        Specializing in AI, Machine Learning<br>
-        Based in Djibouti – Open to work
+        Machine Learning Specialist<br>
+        Based in Djibouti
     </p>
 
     <div class="buttons">
         <button class="btn primary">Resume</button>
-        <button class="btn secondary">Get In Touch</button>
-    </div>
-
-    <div class="profile">
-        <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg">
+        <button class="btn secondary">Contact</button>
     </div>
 
 </div>
 
-<!-- SECTIONS -->
-<div id="about" class="hero">
+<section id="about">
     <h2>About</h2>
     <p>AI Engineer passionate about intelligent systems.</p>
-</div>
+</section>
 
-<div id="skills" class="hero">
+<section id="skills">
     <h2>Skills</h2>
-    <p>Python, Machine Learning, AI</p>
-</div>
+    <p>Python, AI, Machine Learning</p>
+</section>
 
-<div id="projects" class="hero">
+<section id="projects">
     <h2>Projects</h2>
     <p>Project 1, Project 2</p>
-</div>
+</section>
 
-<div id="contact" class="hero">
+<section id="contact">
     <h2>Contact</h2>
     <p>Email: haroumadoita@gmail.com</p>
-</div>
+</section>
 
 </body>
 </html>
