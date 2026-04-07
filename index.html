@@ -22,11 +22,6 @@ body {
 
 .logo { font-weight: bold; }
 
-.right-menu {
-    display: flex;
-    align-items: center;
-}
-
 .lang button {
     background: transparent;
     border: 1px solid #00bfff;
@@ -65,41 +60,20 @@ body {
     padding: 20px;
     min-height: 100vh;
     text-align: center;
-
     background-image: linear-gradient(#00bfff22 1px, transparent 1px),
                       linear-gradient(90deg, #00bfff22 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
-h1 {
-    font-size: 12vw;
-}
-
+h1 { font-size: 12vw; }
 .highlight { color: #00bfff; }
 .white { color: white; }
 
-.desc {
-    color: #94a3b8;
-    margin-top: 20px;
-    font-size: 4vw;
-}
+.desc { color: #94a3b8; margin-top: 20px; font-size: 4vw; }
 
-.btn {
-    padding: 15px 25px;
-    margin: 10px;
-    cursor: pointer;
-}
-
-.primary {
-    background: #00bfff;
-    color: black;
-}
-
-.secondary {
-    border: 1px solid #00bfff;
-    background: transparent;
-    color: #00bfff;
-}
+.btn { padding: 15px 25px; margin: 10px; cursor: pointer; }
+.primary { background: #00bfff; color: black; }
+.secondary { border: 1px solid #00bfff; background: transparent; color: #00bfff; }
 
 .profile-card {
     margin: 40px auto;
@@ -120,14 +94,12 @@ h1 {
     box-shadow: 0 0 20px #00bfff;
 }
 
-.profile-text {
-    color: #94a3b8;
-    text-align: center;
-}
+.profile-text { color: #94a3b8; text-align: center; }
 
-section {
-    padding: 40px 20px;
-}
+section { padding: 40px 20px; }
+
+/* MAKE TEXT AFTER SKILLS WHITE */
+#skills p { color: white; }
 
 input, textarea {
     width: 100%;
@@ -170,6 +142,26 @@ function toggleMenu() {
 function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
+
+function setLang(lang) {
+    if(lang === 'FR') {
+        document.getElementById('title').innerText = "Salut, je suis";
+        document.getElementById('job').innerText = "Ingénieur IA";
+        document.getElementById('aboutText').innerText = "👤 À propos";
+        document.getElementById('eduText').innerText = "🎓 Éducation";
+        document.getElementById('skillsText').innerText = "🛠️ Compétences";
+        document.getElementById('contactText').innerText = "📩 Contact";
+        document.getElementById('profileText').innerText = "Mon parcours a commencé avec les mathématiques, puis l'IA et la data science.";
+    } else {
+        document.getElementById('title').innerText = "Hi, I'm";
+        document.getElementById('job').innerText = "AI Engineer";
+        document.getElementById('aboutText').innerText = "👤 About Me";
+        document.getElementById('eduText').innerText = "🎓 Education";
+        document.getElementById('skillsText').innerText = "🛠️ Skills";
+        document.getElementById('contactText').innerText = "📩 Contact";
+        document.getElementById('profileText').innerText = "My journey started with mathematics then AI and Data Science.";
+    }
+}
 </script>
 
 </head>
@@ -178,6 +170,10 @@ function scrollToSection(id) {
 
 <div class="navbar">
     <div class="logo">PORTFOLIO</div>
+    <div class="lang">
+        <button onclick="setLang('FR')">🇫🇷</button>
+        <button onclick="setLang('EN')">🇬🇧</button>
+    </div>
     <div class="menu-btn" onclick="toggleMenu()">⋮</div>
 </div>
 
@@ -192,9 +188,9 @@ function scrollToSection(id) {
 <div id="home" class="hero">
 
 <h1>
-Hi, I'm <br>
+<span id="title">Hi, I'm</span><br>
 <span class="highlight">Haroum Abdoulkader</span><br>
-<span class="white">AI Engineer</span>
+<span id="job" class="white">AI Engineer</span>
 </h1>
 
 <p class="desc">
@@ -209,31 +205,31 @@ Machine Learning • AI • Data Science
 
 <div class="profile-card">
 <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg" class="profile-img">
-<p class="profile-text">
-My journey started with a background in mathematics, which led me to Artificial Intelligence and Data Science. Through hands-on projects in machine learning, computer vision, and NLP, I developed strong technical and problem-solving skills.
+<p id="profileText" class="profile-text">
+My journey started with a background in mathematics, which led me to Artificial Intelligence and Data Science.
 </p>
 </div>
 
 </div>
 
 <section id="about">
-<h2>👤 About Me</h2>
+<h2 id="aboutText">👤 About Me</h2>
 <p>AI Engineer passionate about intelligent systems.</p>
 </section>
 
 <section id="education">
-<h2>🎓 Education</h2>
+<h2 id="eduText">🎓 Education</h2>
 <p>Your education details here.</p>
 </section>
 
 <section id="skills">
-<h2>🛠️ Skills</h2>
+<h2 id="skillsText">🛠️ Skills</h2>
 
 <p><strong>💻 Programming</strong><br>
 Python, JavaScript, PHP, HTML, SQL</p>
 
 <p><strong>🤖 AI & ML</strong><br>
-TensorFlow, Keras, NLP, Predictive Models</p>
+TensorFlow, Keras, NLP</p>
 
 <p><strong>👁️ Computer Vision</strong><br>
 OpenCV, YOLO, OCR</p>
@@ -246,7 +242,7 @@ Git, Linux, VS Code</p>
 </section>
 
 <section id="contact">
-<h2>📩 Contact</h2>
+<h2 id="contactText">📩 Contact</h2>
 <p>Email: haroumadoita@gmail.com</p>
 <input type="text" placeholder="Your Name">
 <input type="email" placeholder="Your Email">
