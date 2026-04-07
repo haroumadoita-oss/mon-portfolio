@@ -144,6 +144,11 @@ textarea { height: 100px; }
     width: 100%;
 }
 
+.phone-img {
+    margin-top: 20px;
+    width: 120px;
+}
+
 @media(min-width: 768px) {
     h1 { font-size: 90px; }
     .desc { font-size: 18px; }
@@ -165,21 +170,25 @@ function scrollToSection(id) {
 function setLang(lang) {
     if(lang === 'FR') {
         document.getElementById('title').innerText = "Salut, je suis";
+        document.getElementById('job').innerText = "Ingénieur IA.";
+        document.getElementById('descText').innerHTML = "Ingénieur IA & Développeur<br>Spécialisé en IA, Machine Learning<br>Basé à Djibouti – Disponible";
         document.getElementById('aboutText').innerText = "À propos de moi";
         document.getElementById('eduText').innerText = "Éducation";
         document.getElementById('skillsText').innerText = "Compétences";
         document.getElementById('langText').innerText = "Langues";
         document.getElementById('contactText').innerText = "Contact";
-        document.getElementById('btn1').innerText = "CV";
+        document.getElementById('btn1').innerText = "Télécharger CV";
         document.getElementById('btn2').innerText = "Contactez-moi";
     } else {
         document.getElementById('title').innerText = "Hi, I'm";
+        document.getElementById('job').innerText = "AI Engineer.";
+        document.getElementById('descText').innerHTML = "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work";
         document.getElementById('aboutText').innerText = "About Me";
         document.getElementById('eduText').innerText = "Education";
         document.getElementById('skillsText').innerText = "Skills";
         document.getElementById('langText').innerText = "Languages";
         document.getElementById('contactText').innerText = "Contact";
-        document.getElementById('btn1').innerText = "Resume";
+        document.getElementById('btn1').innerText = "Download Resume";
         document.getElementById('btn2').innerText = "Get In Touch";
     }
 }
@@ -218,17 +227,19 @@ function setLang(lang) {
     <h1>
         <span id="title">Hi, I'm</span><br>
         <span class="highlight">Haroum Abdoulkader</span><br>
-        <span class="white">AI Engineer.</span>
+        <span id="job" class="white">AI Engineer.</span>
     </h1>
 
-    <p class="desc">
+    <p id="descText" class="desc">
         AI Engineer & Developer<br>
         Specializing in AI, Machine Learning<br>
         Based in Djibouti – Open to work
     </p>
 
     <div class="buttons">
-        <button id="btn1" class="btn primary">Resume</button>
+        <a href="Haroum_CV (4).pdf" download>
+            <button id="btn1" class="btn primary">Download Resume</button>
+        </a>
         <button id="btn2" class="btn secondary">Get In Touch</button>
     </div>
 
@@ -265,6 +276,11 @@ function setLang(lang) {
     <input type="email" placeholder="Your Email">
     <textarea placeholder="Your Message"></textarea>
     <button class="send-btn">Send Message</button>
+
+    <!-- PHONE IMAGE -->
+    <div style="text-align:center;">
+        <img src="phone.png" class="phone-img">
+    </div>
 </section>
 
 </body>
