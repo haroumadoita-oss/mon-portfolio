@@ -9,7 +9,7 @@ body {
     margin: 0;
     font-family: 'Courier New', monospace;
     background: #020617;
-    color: #00bfff; /* BLUE */
+    color: #00bfff;
 }
 
 .navbar {
@@ -33,6 +33,7 @@ body {
     color: #00bfff;
     margin-right: 10px;
     padding: 5px 10px;
+    cursor: pointer;
 }
 
 .menu-btn {
@@ -69,7 +70,6 @@ body {
     background-size: 40px 40px;
 }
 
-/* BIG MOBILE TEXT LIKE IMAGE */
 h1 {
     font-size: 12vw;
     line-height: 1.05;
@@ -117,7 +117,34 @@ h1 {
     box-shadow: 0 0 20px #00bfff;
 }
 
-/* DESKTOP FIX */
+section {
+    padding: 40px 20px;
+}
+
+/* CONTACT FORM */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: transparent;
+    border: 1px solid #00bfff;
+    color: #00bfff;
+}
+
+textarea {
+    height: 100px;
+}
+
+.send-btn {
+    margin-top: 15px;
+    padding: 12px;
+    background: #00bfff;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
 @media(min-width: 768px) {
     h1 { font-size: 90px; }
     .desc { font-size: 18px; }
@@ -135,6 +162,14 @@ function toggleMenu() {
 function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
+
+function setLang(lang) {
+    if(lang === 'FR') {
+        document.getElementById('title').innerText = "Salut, je suis";
+    } else {
+        document.getElementById('title').innerText = "Hi, I'm";
+    }
+}
 </script>
 
 </head>
@@ -142,12 +177,12 @@ function scrollToSection(id) {
 <body>
 
 <div class="navbar">
-    <div class="logo">AAM_</div>
+    <div class="logo">PORTFOLIO</div>
 
     <div class="right-menu">
         <div class="lang">
-            <button>FR</button>
-            <button>EN</button>
+            <button onclick="setLang('FR')">FR</button>
+            <button onclick="setLang('EN')">EN</button>
         </div>
 
         <div class="menu-btn" onclick="toggleMenu()">⋮</div>
@@ -155,18 +190,18 @@ function scrollToSection(id) {
 </div>
 
 <div id="dropdown" class="dropdown">
+    <a onclick="scrollToSection('home')">Home</a>
     <a onclick="scrollToSection('about')">About</a>
-    <a onclick="scrollToSection('skills')">Skills</a>
-    <a onclick="scrollToSection('projects')">Projects</a>
+    <a onclick="scrollToSection('education')">Education</a>
     <a onclick="scrollToSection('contact')">Contact</a>
 </div>
 
-<div class="hero">
+<div id="home" class="hero">
 
     <p>// AVAILABLE FOR OPPORTUNITIES</p>
 
     <h1>
-        Hi, I'm <br>
+        <span id="title">Hi, I'm</span><br>
         <span class="highlight">Haroum Abdoulkader</span><br>
         <span class="white">AI Engineer.</span>
     </h1>
@@ -182,11 +217,25 @@ function scrollToSection(id) {
         <button class="btn secondary">Get In Touch</button>
     </div>
 
-    <div class="profile">
-        <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg">
-    </div>
-
 </div>
+
+<section id="about">
+    <h2>About</h2>
+    <p>AI Engineer passionate about intelligent systems.</p>
+</section>
+
+<section id="education">
+    <h2>Education</h2>
+    <p>Your education details here.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Your Message"></textarea>
+    <button class="send-btn">Send Message</button>
+</section>
 
 </body>
 </html>
