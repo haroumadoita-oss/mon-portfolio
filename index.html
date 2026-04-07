@@ -73,7 +73,6 @@ body {
 
 h1 {
     font-size: 12vw;
-    line-height: 1.05;
 }
 
 .highlight { color: #00bfff; }
@@ -85,15 +84,10 @@ h1 {
     font-size: 4vw;
 }
 
-.buttons {
-    margin-top: 30px;
-}
-
 .btn {
     padding: 15px 25px;
-    margin-right: 10px;
+    margin: 10px;
     cursor: pointer;
-    font-size: 3.5vw;
 }
 
 .primary {
@@ -103,53 +97,10 @@ h1 {
 
 .secondary {
     border: 1px solid #00bfff;
-    color: #00bfff;
     background: transparent;
-}
-
-/* CENTER IMAGE */
-.profile {
-    margin-top: 40px;
-}
-
-.profile img {
-    width: 180px;
-    border-radius: 50%;
-    border: 2px solid #00bfff;
-    box-shadow: 0 0 25px #00bfff;
-}
-
-section {
-    padding: 40px 20px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    background: transparent;
-    border: 1px solid #00bfff;
     color: #00bfff;
 }
 
-textarea { height: 100px; }
-
-.send-btn {
-    margin-top: 15px;
-    padding: 12px;
-    background: #00bfff;
-    color: black;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-.phone-img {
-    margin-top: 20px;
-    width: 120px;
-}
-
-/* PROFILE CARD STYLE */
 .profile-card {
     margin: 40px auto;
     padding: 20px;
@@ -170,27 +121,44 @@ textarea { height: 100px; }
 }
 
 .profile-text {
-    text-align: center;
     color: #94a3b8;
+    text-align: center;
+}
+
+section {
+    padding: 40px 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: transparent;
+    border: 1px solid #00bfff;
+    color: #00bfff;
+}
+
+.send-btn {
+    margin-top: 15px;
+    padding: 12px;
+    background: #00bfff;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 100%;
 }
 
 @media(min-width: 768px) {
+    h1 { font-size: 80px; }
+    .desc { font-size: 18px; }
+
     .profile-card {
         flex-direction: row;
         text-align: left;
     }
 
-    .profile-text {
-        text-align: left;
-    }
+    .profile-text { text-align: left; }
 }
-
-@media(min-width: 768px) {
-    h1 { font-size: 90px; }
-    .desc { font-size: 18px; }
-    .btn { font-size: 16px; }
-}
-
 </style>
 
 <script>
@@ -202,32 +170,6 @@ function toggleMenu() {
 function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
-
-function setLang(lang) {
-    if(lang === 'FR') {
-        document.getElementById('title').innerText = "Salut, je suis";
-        document.getElementById('job').innerText = "Ingénieur IA.";
-        document.getElementById('descText').innerHTML = "Ingénieur IA & Développeur<br>Spécialisé en IA, Machine Learning<br>Basé à Djibouti – Disponible";
-        document.getElementById('aboutText').innerText = "À propos de moi";
-        document.getElementById('eduText').innerText = "Éducation";
-        document.getElementById('skillsText').innerText = "Compétences";
-        document.getElementById('langText').innerText = "Langues";
-        document.getElementById('contactText').innerText = "Contact";
-        document.getElementById('btn1').innerText = "Télécharger CV";
-        document.getElementById('btn2').innerText = "Contactez-moi";
-    } else {
-        document.getElementById('title').innerText = "Hi, I'm";
-        document.getElementById('job').innerText = "AI Engineer.";
-        document.getElementById('descText').innerHTML = "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work";
-        document.getElementById('aboutText').innerText = "About Me";
-        document.getElementById('eduText').innerText = "Education";
-        document.getElementById('skillsText').innerText = "Skills";
-        document.getElementById('langText').innerText = "Languages";
-        document.getElementById('contactText').innerText = "Contact";
-        document.getElementById('btn1').innerText = "Download Resume";
-        document.getElementById('btn2').innerText = "Get In Touch";
-    }
-}
 </script>
 
 </head>
@@ -236,90 +178,80 @@ function setLang(lang) {
 
 <div class="navbar">
     <div class="logo">PORTFOLIO</div>
-
-    <div class="right-menu">
-        <div class="lang">
-            <button onclick="setLang('FR')">FR</button>
-            <button onclick="setLang('EN')">EN</button>
-        </div>
-
-        <div class="menu-btn" onclick="toggleMenu()">⋮</div>
-    </div>
+    <div class="menu-btn" onclick="toggleMenu()">⋮</div>
 </div>
 
 <div id="dropdown" class="dropdown">
     <a onclick="scrollToSection('home')">Home</a>
-    <a onclick="scrollToSection('about')">About Me</a>
+    <a onclick="scrollToSection('about')">About</a>
     <a onclick="scrollToSection('education')">Education</a>
     <a onclick="scrollToSection('skills')">Skills</a>
-    <a onclick="scrollToSection('languages')">Languages</a>
     <a onclick="scrollToSection('contact')">Contact</a>
 </div>
 
 <div id="home" class="hero">
 
-    <p>// AVAILABLE FOR OPPORTUNITIES</p>
+<h1>
+Hi, I'm <br>
+<span class="highlight">Haroum Abdoulkader</span><br>
+<span class="white">AI Engineer</span>
+</h1>
 
-    <h1>
-        <span id="title">Hi, I'm</span><br>
-        <span class="highlight">Haroum Abdoulkader</span><br>
-        <span id="job" class="white">AI Engineer.</span>
-    </h1>
+<p class="desc">
+AI Engineer & Developer<br>
+Machine Learning • AI • Data Science
+</p>
 
-    <p id="descText" class="desc">
-        AI Engineer & Developer<br>
-        Specializing in AI, Machine Learning<br>
-        Based in Djibouti – Open to work
-    </p>
+<div>
+<button class="btn primary">Download CV</button>
+<button class="btn secondary">Contact</button>
+</div>
 
-    <div class="buttons">
-        <a href="Haroum_CV (4).pdf" download>
-            <button id="btn1" class="btn primary">Download Resume</button>
-        </a>
-        <button id="btn2" class="btn secondary">Get In Touch</button>
-    </div>
-
-    <!-- PROFILE + DESCRIPTION CARD -->
-    <div class="profile-card">
-        <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg" class="profile-img">
-        <p class="profile-text">
-        My journey started with a background in mathematics, which led me to Artificial Intelligence and Data Science. 
-        Through hands-on projects in machine learning, computer vision, and NLP, I developed strong technical and problem-solving skills. 
-        Today, I focus on building intelligent systems that solve real-world problems and create meaningful impact.
-        </p>
-    </div>
+<div class="profile-card">
+<img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg" class="profile-img">
+<p class="profile-text">
+My journey started with a background in mathematics, which led me to Artificial Intelligence and Data Science. Through hands-on projects in machine learning, computer vision, and NLP, I developed strong technical and problem-solving skills.
+</p>
+</div>
 
 </div>
 
 <section id="about">
-    <h2 id="aboutText">About Me</h2>
-    <p>AI Engineer passionate about intelligent systems.</p>
+<h2>👤 About Me</h2>
+<p>AI Engineer passionate about intelligent systems.</p>
 </section>
 
 <section id="education">
-    <h2 id="eduText">Education</h2>
-    <p>Your education details here.</p>
+<h2>🎓 Education</h2>
+<p>Your education details here.</p>
 </section>
 
 <section id="skills">
-    <h2 id="skillsText">Skills</h2>
-    <p>Python, Machine Learning, AI, Web Development</p>
-</section>
+<h2>🛠️ Skills</h2>
 
-<section id="languages">
-    <h2 id="langText">Languages</h2>
-    <p>French, English</p>
+<p><strong>💻 Programming</strong><br>
+Python, JavaScript, PHP, HTML, SQL</p>
+
+<p><strong>🤖 AI & ML</strong><br>
+TensorFlow, Keras, NLP, Predictive Models</p>
+
+<p><strong>👁️ Computer Vision</strong><br>
+OpenCV, YOLO, OCR</p>
+
+<p><strong>📊 Data Science</strong><br>
+Pandas, NumPy, EDA</p>
+
+<p><strong>🛠️ Tools</strong><br>
+Git, Linux, VS Code</p>
 </section>
 
 <section id="contact">
-    <h2 id="contactText">Contact</h2>
-    <p>Email: haroumadoita@gmail.com</p>
-    <input type="text" placeholder="Your Name">
-    <input type="email" placeholder="Your Email">
-    <textarea placeholder="Your Message"></textarea>
-    <button class="send-btn">Send Message</button>
-
-    
+<h2>📩 Contact</h2>
+<p>Email: haroumadoita@gmail.com</p>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea placeholder="Your Message"></textarea>
+<button class="send-btn">Send</button>
 </section>
 
 </body>
