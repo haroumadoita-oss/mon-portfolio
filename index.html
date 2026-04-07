@@ -1,70 +1,105 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cyber Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Courier New', monospace;
     background: #020617;
     color: #00ff9f;
 }
 
+/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 15px 20px;
+    padding: 20px;
     border-bottom: 1px solid #00ff9f;
+    align-items: center;
 }
 
 .logo {
-    font-size: 20px;
+    font-weight: bold;
 }
 
-.menu-btn {
-    font-size: 30px;
-}
-
-.hero {
-    height: 100vh;
+.right-menu {
     display: flex;
+    align-items: center;
+}
+
+.lang button {
+    background: transparent;
+    border: 1px solid #00ff9f;
+    color: #00ff9f;
+    margin-right: 10px;
+    padding: 5px 10px;
+}
+
+/* MENU 3 POINTS */
+.menu-btn {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* MENU VERTICAL */
+.dropdown {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #020617;
+    border: 1px solid #00ff9f;
+    display: none;
     flex-direction: column;
-    justify-content: center;
-    padding: 20px;
+}
+
+.dropdown a {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.dropdown a:hover {
+    background: #00ff9f;
+    color: black;
+}
+
+/* HERO */
+.hero {
+    padding: 50px;
+    min-height: 100vh;
 
     background-image: linear-gradient(#00ff9f22 1px, transparent 1px),
                       linear-gradient(90deg, #00ff9f22 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
-/* RESPONSIVE BIG TEXT */
 h1 {
-    font-size: 12vw; /* MAGIC LINE */
-    line-height: 1.05;
+    font-size: 45px;
 }
 
-.highlight { color: #00ff9f; }
-.white { color: white; }
+.highlight {
+    color: #00ff9f;
+}
+
+.white {
+    color: white;
+}
 
 .desc {
     color: #94a3b8;
     margin-top: 20px;
-    font-size: 4vw;
 }
 
+/* BUTTONS */
 .buttons {
-    margin-top: 25px;
-    display: flex;
-    gap: 10px;
+    margin-top: 30px;
 }
 
 .btn {
-    padding: 12px 18px;
-    font-size: 3.5vw;
+    padding: 15px 25px;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 .primary {
@@ -78,44 +113,103 @@ h1 {
     background: transparent;
 }
 
-/* TABLET / DESKTOP */
-@media(min-width: 768px) {
-    h1 { font-size: 90px; }
-    .desc { font-size: 18px; }
-    .btn { font-size: 16px; }
+/* IMAGE */
+.profile {
+    margin-top: 50px;
 }
 
+.profile img {
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid #00ff9f;
+    box-shadow: 0 0 20px #00ff9f;
+}
 </style>
+
+<script>
+function toggleMenu() {
+    let menu = document.getElementById("dropdown");
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+}
+
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+</script>
 
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo">AAM_</div>
-    <div class="menu-btn">⋮</div>
+
+    <div class="right-menu">
+        <div class="lang">
+            <button>FR</button>
+            <button>EN</button>
+        </div>
+
+        <div class="menu-btn" onclick="toggleMenu()">⋮</div>
+    </div>
 </div>
 
+<!-- MENU VERTICAL -->
+<div id="dropdown" class="dropdown">
+    <a onclick="scrollToSection('about')">About</a>
+    <a onclick="scrollToSection('skills')">Skills</a>
+    <a onclick="scrollToSection('projects')">Projects</a>
+    <a onclick="scrollToSection('contact')">Contact</a>
+</div>
+
+<!-- HERO -->
 <div class="hero">
 
     <p>// AVAILABLE FOR OPPORTUNITIES</p>
 
     <h1>
         Hi, I'm <br>
-        <span class="highlight">Haroum</span><br>
-        <span class="white">Abdoulkader</span>
+        <span class="highlight">Haroum Abdoulkader</span><br>
+        <span class="white">AI Engineer.</span>
     </h1>
 
     <p class="desc">
         AI Engineer & Developer<br>
-        AI / ML Specialist
+        Specializing in AI, Machine Learning<br>
+        Based in Djibouti – Open to work
     </p>
 
     <div class="buttons">
-        <button class="btn primary">VIEW PROJECTS</button>
-        <button class="btn secondary">CONTACT</button>
+        <button class="btn primary">Resume</button>
+        <button class="btn secondary">Get In Touch</button>
     </div>
 
+    <div class="profile">
+        <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg">
+    </div>
+
+</div>
+
+<!-- SECTIONS -->
+<div id="about" class="hero">
+    <h2>About</h2>
+    <p>AI Engineer passionate about intelligent systems.</p>
+</div>
+
+<div id="skills" class="hero">
+    <h2>Skills</h2>
+    <p>Python, Machine Learning, AI</p>
+</div>
+
+<div id="projects" class="hero">
+    <h2>Projects</h2>
+    <p>Project 1, Project 2</p>
+</div>
+
+<div id="contact" class="hero">
+    <h2>Contact</h2>
+    <p>Email: haroumadoita@gmail.com</p>
 </div>
 
 </body>
