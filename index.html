@@ -113,7 +113,6 @@ h1 {
     background: transparent;
 }
 
-/* PROFILE CARD STYLE */
 .profile-card {
     margin: 40px auto;
     padding: 20px;
@@ -155,7 +154,6 @@ h1 {
     .btn { font-size: 16px; }
 }
 
-/* CONTACT INPUT FIX */
 #contact input,
 #contact textarea {
     display: block;
@@ -163,7 +161,6 @@ h1 {
     margin-top: 12px;
 }
 
-/* SEND BUTTON */
 .send-btn {
     margin-top: 15px;
     padding: 12px;
@@ -201,12 +198,6 @@ function setLang(lang) {
         document.getElementById('btn1').innerText = "Télécharger CV";
         document.getElementById('btn2').innerText = "Contactez-moi";
 
-        document.getElementById('profileText').innerText =
-        "Mon parcours a commencé par une formation en mathématiques, qui m’a conduit vers l’intelligence artificielle et la data science. À travers des projets pratiques en machine learning, vision par ordinateur et NLP, j’ai développé de solides compétences techniques et analytiques. Aujourd’hui, je conçois des systèmes intelligents capables de résoudre des problèmes concrets et d’avoir un impact réel.";
-
-        document.querySelector('#languages p').innerHTML =
-        "Anglais (Courant)<br>Français (Courant)<br>Japonais (Intermédiaire)<br>Somali (Natif)<br>Arabe (Intermédiaire)";
-
     } else {
         document.getElementById('title').innerText = "Hi, I'm";
         document.getElementById('job').innerText = "AI Engineer.";
@@ -220,12 +211,6 @@ function setLang(lang) {
         
         document.getElementById('btn1').innerText = "Download Resume";
         document.getElementById('btn2').innerText = "Get In Touch";
-
-        document.getElementById('profileText').innerText =
-        "My journey started with a background in mathematics, which led me to Artificial Intelligence and Data Science. Through hands-on projects in machine learning, computer vision, and NLP, I developed strong technical and problem-solving skills. Today, I focus on building intelligent systems that solve real-world problems and create meaningful impact.";
-
-        document.querySelector('#languages p').innerHTML =
-        "English (Fluent)<br>French (Fluent)<br>Japanese (Intermediate)<br>Somali (Native)<br>Arabic (Intermediate)";
     }
 }
 </script>
@@ -281,7 +266,7 @@ function setLang(lang) {
 
     <div class="profile-card">
         <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg" class="profile-img">
-        <p id="profileText" class="profile-text">
+        <p class="profile-text">
         My journey started with a background in mathematics, which led me to Artificial Intelligence and Data Science. 
         Through hands-on projects in machine learning, computer vision, and NLP, I developed strong technical and problem-solving skills. 
         Today, I focus on building intelligent systems that solve real-world problems and create meaningful impact.
@@ -292,7 +277,34 @@ function setLang(lang) {
 
 <section id="about">
     <h2 id="aboutText">🏆 Achievements & Experience</h2>
-    <p>AI Engineer passionate about intelligent systems.</p>
+
+    <p>
+    Finale du Hackathon CEIT – AUF 2026 : Imaginer des solutions durables avec l’IA 🌱🤖
+    <br><br>
+    Participation à la journée finale du Hackathon.
+    <br><br>
+    📊 Projet :
+    <br>
+    Système d’évaluation des risques climatiques pour les sites patrimoniaux utilisant l’intelligence artificielle.
+    <br><br>
+    💡 Utilisation de l’IA pour prédire les risques climatiques.
+    <br><br>
+    🌍 Impact :
+    <br>
+    • Anticipation des risques  
+    <br>
+    • Protection des sites  
+    <br>
+    • Décisions basées sur les données  
+    <br><br>
+    🎓 Certificat de participation obtenu.
+    <br><br>
+    ✨ Expérience enrichissante en IA et développement durable.
+    </p>
+
+    <div style="text-align:center; margin-top:20px;">
+        <img src="AUF.jpg" style="max-width:100%; border:2px solid #00bfff; border-radius:10px;">
+    </div>
 </section>
 
 <section id="education">
@@ -307,13 +319,7 @@ function setLang(lang) {
 
 <section id="languages">
     <h2 id="langText">Languages</h2>
-    <p>
-    English (Fluent)<br>
-    French (Fluent)<br>
-    Japanese (Intermediate)<br>
-    Somali (Native)<br>
-    Arabic (Intermediate)
-    </p>
+    <p>English, French</p>
 </section>
 
 <section id="contact">
