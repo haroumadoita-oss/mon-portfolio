@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cyber Portfolio</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
@@ -12,106 +12,59 @@ body {
     font-family: 'Orbitron', sans-serif;
     background: #020617;
     color: #00ff9f;
-    overflow-x: hidden;
 }
 
-/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 15px 20px;
     border-bottom: 1px solid #00ff9f;
-    align-items: center;
 }
 
 .logo {
-    font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
 }
 
-.right-menu {
-    display: flex;
-    align-items: center;
-}
-
-.lang button {
-    background: transparent;
-    border: 1px solid #00ff9f;
-    color: #00ff9f;
-    margin-right: 10px;
-    padding: 5px 10px;
-}
-
-/* BIGGER 3 DOT MENU */
 .menu-btn {
-    font-size: 40px;
-    cursor: pointer;
+    font-size: 30px;
 }
 
-/* MENU */
-.dropdown {
-    position: absolute;
-    top: 80px;
-    right: 20px;
-    background: #020617;
-    border: 1px solid #00ff9f;
-    display: none;
-    flex-direction: column;
-}
-
-.dropdown a {
-    padding: 15px 25px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.dropdown a:hover {
-    background: #00ff9f;
-    color: black;
-}
-
-/* HERO FULL SCREEN */
 .hero {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 50px;
+    padding: 20px;
 
     background-image: linear-gradient(#00ff9f22 1px, transparent 1px),
                       linear-gradient(90deg, #00ff9f22 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
-/* HUGE TEXT */
+/* RESPONSIVE BIG TEXT */
 h1 {
-    font-size: 90px;
-    line-height: 1.1;
+    font-size: 12vw; /* MAGIC LINE */
+    line-height: 1.05;
 }
 
-.highlight {
-    color: #00ff9f;
-}
-
-.white {
-    color: white;
-}
+.highlight { color: #00ff9f; }
+.white { color: white; }
 
 .desc {
     color: #94a3b8;
     margin-top: 20px;
-    font-size: 22px;
+    font-size: 4vw;
 }
 
 .buttons {
-    margin-top: 30px;
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
 }
 
 .btn {
-    padding: 18px 30px;
-    margin-right: 10px;
-    cursor: pointer;
-    font-size: 18px;
+    padding: 12px 18px;
+    font-size: 3.5vw;
 }
 
 .primary {
@@ -125,33 +78,14 @@ h1 {
     background: transparent;
 }
 
-.profile {
-    margin-top: 50px;
+/* TABLET / DESKTOP */
+@media(min-width: 768px) {
+    h1 { font-size: 90px; }
+    .desc { font-size: 18px; }
+    .btn { font-size: 16px; }
 }
 
-.profile img {
-    width: 180px;
-    border-radius: 50%;
-    border: 2px solid #00ff9f;
-    box-shadow: 0 0 25px #00ff9f;
-}
-
-section {
-    height: 100vh;
-    padding: 50px;
-}
 </style>
-
-<script>
-function toggleMenu() {
-    let menu = document.getElementById("dropdown");
-    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-}
-
-function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-}
-</script>
 
 </head>
 
@@ -159,22 +93,7 @@ function scrollToSection(id) {
 
 <div class="navbar">
     <div class="logo">AAM_</div>
-
-    <div class="right-menu">
-        <div class="lang">
-            <button>FR</button>
-            <button>EN</button>
-        </div>
-
-        <div class="menu-btn" onclick="toggleMenu()">⋮</div>
-    </div>
-</div>
-
-<div id="dropdown" class="dropdown">
-    <a onclick="scrollToSection('about')">About</a>
-    <a onclick="scrollToSection('skills')">Skills</a>
-    <a onclick="scrollToSection('projects')">Projects</a>
-    <a onclick="scrollToSection('contact')">Contact</a>
+    <div class="menu-btn">⋮</div>
 </div>
 
 <div class="hero">
@@ -183,42 +102,21 @@ function scrollToSection(id) {
 
     <h1>
         Hi, I'm <br>
-        <span class="highlight">Haroum Abdoulkader</span><br>
-        <span class="white">AI Engineer</span>
+        <span class="highlight">Haroum</span><br>
+        <span class="white">Abdoulkader</span>
     </h1>
 
     <p class="desc">
         AI Engineer & Developer<br>
-        Machine Learning Specialist<br>
-        Based in Djibouti
+        AI / ML Specialist
     </p>
 
     <div class="buttons">
-        <button class="btn primary">Resume</button>
-        <button class="btn secondary">Contact</button>
+        <button class="btn primary">VIEW PROJECTS</button>
+        <button class="btn secondary">CONTACT</button>
     </div>
 
 </div>
-
-<section id="about">
-    <h2>About</h2>
-    <p>AI Engineer passionate about intelligent systems.</p>
-</section>
-
-<section id="skills">
-    <h2>Skills</h2>
-    <p>Python, AI, Machine Learning</p>
-</section>
-
-<section id="projects">
-    <h2>Projects</h2>
-    <p>Project 1, Project 2</p>
-</section>
-
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Email: haroumadoita@gmail.com</p>
-</section>
 
 </body>
 </html>
