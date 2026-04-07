@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cyber Portfolio</title>
 
 <style>
@@ -8,21 +9,18 @@ body {
     margin: 0;
     font-family: 'Courier New', monospace;
     background: #020617;
-    color: #00ff9f;
+    color: #00bfff; /* BLUE */
 }
 
-/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    border-bottom: 1px solid #00ff9f;
+    border-bottom: 1px solid #00bfff;
     align-items: center;
 }
 
-.logo {
-    font-weight: bold;
-}
+.logo { font-weight: bold; }
 
 .right-menu {
     display: flex;
@@ -31,25 +29,23 @@ body {
 
 .lang button {
     background: transparent;
-    border: 1px solid #00ff9f;
-    color: #00ff9f;
+    border: 1px solid #00bfff;
+    color: #00bfff;
     margin-right: 10px;
     padding: 5px 10px;
 }
 
-/* MENU 3 POINTS */
 .menu-btn {
-    font-size: 25px;
+    font-size: 30px;
     cursor: pointer;
 }
 
-/* MENU VERTICAL */
 .dropdown {
     position: absolute;
     top: 70px;
     right: 20px;
     background: #020617;
-    border: 1px solid #00ff9f;
+    border: 1px solid #00bfff;
     display: none;
     flex-direction: column;
 }
@@ -60,38 +56,34 @@ body {
 }
 
 .dropdown a:hover {
-    background: #00ff9f;
+    background: #00bfff;
     color: black;
 }
 
-/* HERO */
 .hero {
-    padding: 50px;
-    min-height: 100vh;
+    padding: 20px;
+    height: 100vh;
 
-    background-image: linear-gradient(#00ff9f22 1px, transparent 1px),
-                      linear-gradient(90deg, #00ff9f22 1px, transparent 1px);
+    background-image: linear-gradient(#00bfff22 1px, transparent 1px),
+                      linear-gradient(90deg, #00bfff22 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
+/* BIG MOBILE TEXT LIKE IMAGE */
 h1 {
-    font-size: 45px;
+    font-size: 12vw;
+    line-height: 1.05;
 }
 
-.highlight {
-    color: #00ff9f;
-}
-
-.white {
-    color: white;
-}
+.highlight { color: #00bfff; }
+.white { color: white; }
 
 .desc {
     color: #94a3b8;
     margin-top: 20px;
+    font-size: 4vw;
 }
 
-/* BUTTONS */
 .buttons {
     margin-top: 30px;
 }
@@ -100,20 +92,20 @@ h1 {
     padding: 15px 25px;
     margin-right: 10px;
     cursor: pointer;
+    font-size: 3.5vw;
 }
 
 .primary {
-    background: #00ff9f;
+    background: #00bfff;
     color: black;
 }
 
 .secondary {
-    border: 1px solid #00ff9f;
-    color: #00ff9f;
+    border: 1px solid #00bfff;
+    color: #00bfff;
     background: transparent;
 }
 
-/* IMAGE */
 .profile {
     margin-top: 50px;
 }
@@ -121,9 +113,17 @@ h1 {
 .profile img {
     width: 150px;
     border-radius: 50%;
-    border: 2px solid #00ff9f;
-    box-shadow: 0 0 20px #00ff9f;
+    border: 2px solid #00bfff;
+    box-shadow: 0 0 20px #00bfff;
 }
+
+/* DESKTOP FIX */
+@media(min-width: 768px) {
+    h1 { font-size: 90px; }
+    .desc { font-size: 18px; }
+    .btn { font-size: 16px; }
+}
+
 </style>
 
 <script>
@@ -141,7 +141,6 @@ function scrollToSection(id) {
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo">AAM_</div>
 
@@ -155,7 +154,6 @@ function scrollToSection(id) {
     </div>
 </div>
 
-<!-- MENU VERTICAL -->
 <div id="dropdown" class="dropdown">
     <a onclick="scrollToSection('about')">About</a>
     <a onclick="scrollToSection('skills')">Skills</a>
@@ -163,7 +161,6 @@ function scrollToSection(id) {
     <a onclick="scrollToSection('contact')">Contact</a>
 </div>
 
-<!-- HERO -->
 <div class="hero">
 
     <p>// AVAILABLE FOR OPPORTUNITIES</p>
@@ -189,27 +186,6 @@ function scrollToSection(id) {
         <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg">
     </div>
 
-</div>
-
-<!-- SECTIONS -->
-<div id="about" class="hero">
-    <h2>About</h2>
-    <p>AI Engineer passionate about intelligent systems.</p>
-</div>
-
-<div id="skills" class="hero">
-    <h2>Skills</h2>
-    <p>Python, Machine Learning, AI</p>
-</div>
-
-<div id="projects" class="hero">
-    <h2>Projects</h2>
-    <p>Project 1, Project 2</p>
-</div>
-
-<div id="contact" class="hero">
-    <h2>Contact</h2>
-    <p>Email: haroumadoita@gmail.com</p>
 </div>
 
 </body>
