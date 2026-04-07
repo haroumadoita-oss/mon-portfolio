@@ -13,7 +13,7 @@ body {
 }
 
 .navbar {
-    display: flexa
+    display: flex;
     justify-content: space-between;
     padding: 20px;
     border-bottom: 1px solid #00bfff;
@@ -23,6 +23,12 @@ body {
 .logo { font-weight: bold; }
 
 .right-menu {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.lang {
     display: flex;
     align-items: center;
 }
@@ -147,6 +153,18 @@ h1 {
     h1 { font-size: 90px; }
     .desc { font-size: 18px; }
     .btn { font-size: 16px; }
+}
+
+/* SEND BUTTON FIX */
+.send-btn {
+    margin-top: 15px;
+    padding: 12px;
+    background: #00bfff;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    display: block;
 }
 </style>
 
