@@ -13,7 +13,7 @@ body {
 }
 
 .navbar {
-    display: flex;
+    display: flexa
     justify-content: space-between;
     padding: 20px;
     border-bottom: 1px solid #00bfff;
@@ -107,48 +107,6 @@ h1 {
     background: transparent;
 }
 
-/* CENTER IMAGE */
-.profile {
-    margin-top: 40px;
-}
-
-.profile img {
-    width: 180px;
-    border-radius: 50%;
-    border: 2px solid #00bfff;
-    box-shadow: 0 0 25px #00bfff;
-}
-
-section {
-    padding: 40px 20px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    background: transparent;
-    border: 1px solid #00bfff;
-    color: #00bfff;
-}
-
-textarea { height: 100px; }
-
-.send-btn {
-    margin-top: 15px;
-    padding: 12px;
-    background: #00bfff;
-    color: black;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-.phone-img {
-    margin-top: 20px;
-    width: 120px;
-}
-
 /* PROFILE CARD STYLE */
 .profile-card {
     margin: 40px auto;
@@ -190,7 +148,6 @@ textarea { height: 100px; }
     .desc { font-size: 18px; }
     .btn { font-size: 16px; }
 }
-
 </style>
 
 <script>
@@ -208,24 +165,35 @@ function setLang(lang) {
         document.getElementById('title').innerText = "Salut, je suis";
         document.getElementById('job').innerText = "Ingénieur IA.";
         document.getElementById('descText').innerHTML = "Ingénieur IA & Développeur<br>Spécialisé en IA, Machine Learning<br>Basé à Djibouti – Disponible";
-        document.getElementById('aboutText').innerText = "À propos de moi";
+        
+        document.getElementById('aboutText').innerText = "🏆 Réalisations & Expérience";
         document.getElementById('eduText').innerText = "Éducation";
         document.getElementById('skillsText').innerText = "Compétences";
         document.getElementById('langText').innerText = "Langues";
         document.getElementById('contactText').innerText = "Contact";
+        
         document.getElementById('btn1').innerText = "Télécharger CV";
         document.getElementById('btn2').innerText = "Contactez-moi";
+
+        document.getElementById('profileText').innerText =
+        "Mon parcours a commencé par une formation en mathématiques, qui m’a conduit vers l’intelligence artificielle et la data science. À travers des projets pratiques en machine learning, vision par ordinateur et NLP, j’ai développé de solides compétences techniques et analytiques. Aujourd’hui, je conçois des systèmes intelligents capables de résoudre des problèmes concrets et d’avoir un impact réel.";
+
     } else {
         document.getElementById('title').innerText = "Hi, I'm";
         document.getElementById('job').innerText = "AI Engineer.";
         document.getElementById('descText').innerHTML = "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work";
-        document.getElementById('aboutText').innerText = "About Me";
+        
+        document.getElementById('aboutText').innerText = "🏆 Achievements & Experience";
         document.getElementById('eduText').innerText = "Education";
         document.getElementById('skillsText').innerText = "Skills";
         document.getElementById('langText').innerText = "Languages";
         document.getElementById('contactText').innerText = "Contact";
+        
         document.getElementById('btn1').innerText = "Download Resume";
         document.getElementById('btn2').innerText = "Get In Touch";
+
+        document.getElementById('profileText').innerText =
+        "My journey started with a background in mathematics, which led me to Artificial Intelligence and Data Science. Through hands-on projects in machine learning, computer vision, and NLP, I developed strong technical and problem-solving skills. Today, I focus on building intelligent systems that solve real-world problems and create meaningful impact.";
     }
 }
 </script>
@@ -279,10 +247,9 @@ function setLang(lang) {
         <button id="btn2" class="btn secondary">Get In Touch</button>
     </div>
 
-    <!-- PROFILE + DESCRIPTION CARD -->
     <div class="profile-card">
         <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg" class="profile-img">
-        <p class="profile-text">
+        <p id="profileText" class="profile-text">
         My journey started with a background in mathematics, which led me to Artificial Intelligence and Data Science. 
         Through hands-on projects in machine learning, computer vision, and NLP, I developed strong technical and problem-solving skills. 
         Today, I focus on building intelligent systems that solve real-world problems and create meaningful impact.
@@ -292,7 +259,7 @@ function setLang(lang) {
 </div>
 
 <section id="about">
-    <h2 id="aboutText">About Me</h2>
+    <h2 id="aboutText">🏆 Achievements & Experience</h2>
     <p>AI Engineer passionate about intelligent systems.</p>
 </section>
 
@@ -318,8 +285,6 @@ function setLang(lang) {
     <input type="email" placeholder="Your Email">
     <textarea placeholder="Your Message"></textarea>
     <button class="send-btn">Send Message</button>
-
-    
 </section>
 
 </body>
