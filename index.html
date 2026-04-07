@@ -121,7 +121,6 @@ section {
     padding: 40px 20px;
 }
 
-/* CONTACT FORM */
 input, textarea {
     width: 100%;
     padding: 10px;
@@ -131,9 +130,7 @@ input, textarea {
     color: #00bfff;
 }
 
-textarea {
-    height: 100px;
-}
+textarea { height: 100px; }
 
 .send-btn {
     margin-top: 15px;
@@ -191,8 +188,10 @@ function setLang(lang) {
 
 <div id="dropdown" class="dropdown">
     <a onclick="scrollToSection('home')">Home</a>
-    <a onclick="scrollToSection('about')">About</a>
+    <a onclick="scrollToSection('about')">About Me</a>
     <a onclick="scrollToSection('education')">Education</a>
+    <a onclick="scrollToSection('skills')">Skills</a>
+    <a onclick="scrollToSection('languages')">Languages</a>
     <a onclick="scrollToSection('contact')">Contact</a>
 </div>
 
@@ -220,7 +219,7 @@ function setLang(lang) {
 </div>
 
 <section id="about">
-    <h2>About</h2>
+    <h2>About Me</h2>
     <p>AI Engineer passionate about intelligent systems.</p>
 </section>
 
@@ -229,8 +228,19 @@ function setLang(lang) {
     <p>Your education details here.</p>
 </section>
 
+<section id="skills">
+    <h2>Skills</h2>
+    <p>Python, Machine Learning, AI, Web Development</p>
+</section>
+
+<section id="languages">
+    <h2>Languages</h2>
+    <p>French, English</p>
+</section>
+
 <section id="contact">
     <h2>Contact</h2>
+    <p>Email: haroumadoita@gmail.com</p>
     <input type="text" placeholder="Your Name">
     <input type="email" placeholder="Your Email">
     <textarea placeholder="Your Message"></textarea>
