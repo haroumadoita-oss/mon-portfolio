@@ -52,10 +52,22 @@ h1 { font-size:12vw; line-height:1.05; }
 
 <script>
 function toggleMenu(){
-    let menu = document.getElementById("dropdown");
+    const menu = document.getElementById("dropdown");
     if(menu.style.display === "block"){
         menu.style.display = "none";
     } else {
+        menu.style.display = "block";
+    }
+}
+
+// close menu when clicking outside
+document.addEventListener('click', function(e){
+    const menu = document.getElementById("dropdown");
+    const btn = document.querySelector('.menu-btn');
+    if(!menu.contains(e.target) && !btn.contains(e.target)){
+        menu.style.display = "none";
+    }
+}); else {
         menu.style.display = "block";
     }
 } else { menu.style.display = "flex"; } }
@@ -64,9 +76,23 @@ function toggleReadMore(id){ let el=document.getElementById(id); el.style.displa
 
 // 🌐 SIMPLE FULL TRANSLATION (Google)
 function setLanguage(lang){
-    if(lang === 'FR'){
-        alert("Pour traduction complète, ouvre le site avec Google Translate (clic droit → traduire)");
-    } else {
+
+if(lang === 'FR'){
+    document.querySelector('.desc').innerHTML = "Ingénieur IA & Développeur<br>Spécialisé en IA et Machine Learning<br>Basé à Djibouti – Ouvert aux opportunités";
+    document.querySelector('#about h2').innerText = "🏆 Expériences & Réalisations";
+    document.querySelector('#skills h2').innerText = "⚡ Compétences";
+    document.querySelector('#languages h2').innerText = "🌍 Langues";
+    document.querySelector('#education h2').innerText = "🎓 Éducation";
+    document.querySelector('#contact h2').innerText = "Contact";
+} else {
+    document.querySelector('.desc').innerHTML = "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work";
+    document.querySelector('#about h2').innerText = "🏆 Achievements & Experience";
+    document.querySelector('#skills h2').innerText = "⚡ Skills";
+    document.querySelector('#languages h2').innerText = "🌍 Languages";
+    document.querySelector('#education h2').innerText = "🎓 Education";
+    document.querySelector('#contact h2').innerText = "Contact";
+}
+} else {
         location.reload();
     }
 } else {
