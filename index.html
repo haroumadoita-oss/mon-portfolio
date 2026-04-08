@@ -55,13 +55,44 @@ function toggleMenu(){ let menu=document.getElementById("dropdown"); menu.style.
 function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:"smooth"}); }
 function toggleReadMore(id){ let el=document.getElementById(id); el.style.display=(el.style.display==="block")?"none":"block"; }
 
-// 🌐 TRANSLATION SYSTEM
+// 🌐 FULL PAGE TRANSLATION SYSTEM
 function setLanguage(lang){
-    if(lang === 'FR'){
-        document.querySelector('.desc').innerHTML = "Ingénieur IA & Développeur<br>Spécialisé en IA, Machine Learning<br>Basé à Djibouti – Ouvert aux opportunités";
-    } else {
-        document.querySelector('.desc').innerHTML = "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work";
-    }
+
+const translations = {
+EN: {
+about: "🏆 Achievements & Experience",
+education: "🎓 Education",
+skills: "⚡ Skills",
+languages: "🌍 Languages",
+contact: "Contact",
+open: "I'M OPEN TO WORK",
+desc: "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work"
+},
+FR: {
+about: "🏆 Expériences & Réalisations",
+education: "🎓 Éducation",
+skills: "⚡ Compétences",
+languages: "🌍 Langues",
+contact: "Contact",
+open: "DISPONIBLE POUR TRAVAIL",
+desc: "Ingénieur IA & Développeur<br>Spécialisé en IA, Machine Learning<br>Basé à Djibouti – Ouvert aux opportunités"
+}
+};
+
+// change main description
+ document.querySelector('.desc').innerHTML = translations[lang].desc;
+
+// change section titles
+ document.querySelector('#about h2').innerText = translations[lang].about;
+ document.querySelector('#education h2').innerText = translations[lang].education;
+ document.querySelector('#skills h2').innerText = translations[lang].skills;
+ document.querySelector('#languages h2').innerText = translations[lang].languages;
+ document.querySelector('#contact h2').innerText = translations[lang].contact;
+
+// open to work text
+ let openText = document.querySelector('#contact h3');
+ if(openText){ openText.innerText = translations[lang].open; }
+}
 }
 
 // 📩 EMAIL (mailto simple)
