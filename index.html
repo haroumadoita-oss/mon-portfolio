@@ -138,12 +138,18 @@ h1 {
 }
 
 .read-more-box {
-    border: 1px solid #00bfff;
+    border: 1px solid white;
+    background: white;
+    color: black;
     display: inline-block;
     padding: 8px 12px;
     margin-top: 10px;
     cursor: pointer;
     font-size: 12px;
+}
+
+.hidden {
+    display: none;
 }
 
 @media(min-width: 768px) {
@@ -189,6 +195,11 @@ function toggleMenu() {
 
 function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+
+function toggleReadMore() {
+    let more = document.getElementById("moreText");
+    more.style.display = (more.style.display === "block") ? "none" : "block";
 }
 </script>
 
@@ -260,11 +271,21 @@ function scrollToSection(id) {
 
     <p>
     <b>Hackathon CEIT – AUF 2026</b><br><br>
-    Developed an AI-powered system designed to assess climate risks affecting heritage sites. The solution integrates data analysis and machine learning techniques to identify potential environmental threats and support decision-making for preservation strategies.
-    <br><br>
-    This project involved problem-solving, teamwork, and applying AI concepts in a real-world scenario under time constraints.
+    Built an AI solution for climate risk detection.<br>
+    Focused on protecting heritage sites using data.<br>
+    Developed under real hackathon conditions.
     <br>
-    <div class="read-more-box">Read more</div>
+    <div class="read-more-box" onclick="toggleReadMore()">Read more</div>
+
+    <div id="moreText" class="hidden">
+    <br>
+    This project focused on developing an AI-powered system capable of assessing climate risks affecting cultural and heritage sites. 
+    The solution used data analysis and machine learning techniques to detect environmental threats such as temperature changes and environmental degradation.
+    <br><br>
+    The project was built during a hackathon, requiring rapid prototyping, teamwork, and efficient problem-solving under time constraints.
+    <br><br>
+    This experience strengthened my skills in AI development, collaboration, and applying theoretical knowledge to real-world challenges.
+    </div>
 
     <hr style="border:1px solid #00bfff; margin:40px 0;">
 
