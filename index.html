@@ -5,345 +5,190 @@
 <title>Cyber Portfolio</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Courier New', monospace;
-    background: #020617;
-    color: #00bfff;
-}
+body { margin:0; font-family:'Courier New', monospace; background:#020617; color:#00bfff; }
+.navbar { display:flex; justify-content:space-between; padding:20px; border-bottom:1px solid #00bfff; align-items:center; }
+.logo { font-weight:bold; }
+.right-menu { display:flex; align-items:center; margin-left:auto; }
+.lang { display:flex; align-items:center; }
+.lang button { background:transparent; border:1px solid #00bfff; color:#00bfff; margin-right:10px; padding:5px 10px; cursor:pointer; }
+.menu-btn { font-size:30px; cursor:pointer; }
+.dropdown { position:absolute; top:70px; right:20px; background:#020617; border:1px solid #00bfff; display:none; flex-direction:column; }
+.dropdown a { padding:10px 20px; cursor:pointer; }
+.dropdown a:hover { background:#00bfff; color:black; }
+.hero { padding:20px; min-height:100vh; text-align:center; background-image: linear-gradient(#00bfff22 1px, transparent 1px), linear-gradient(90deg, #00bfff22 1px, transparent 1px); background-size:40px 40px; }
+h1 { font-size:12vw; line-height:1.05; }
+.highlight { color:#00bfff; }
+.white { color:white; }
+.desc { color:#94a3b8; margin-top:20px; font-size:4vw; }
+.buttons { margin-top:30px; }
+.btn { padding:15px 25px; margin-right:10px; cursor:pointer; font-size:3.5vw; }
+.primary { background:#00bfff; color:black; }
+.secondary { border:1px solid #00bfff; color:#00bfff; background:transparent; }
+.profile-card { margin:40px auto; padding:20px; max-width:700px; display:flex; flex-direction:column; align-items:center; gap:20px; border:1px solid #00bfff; border-radius:15px; }
+.profile-img { width:150px; border-radius:50%; border:2px solid #00bfff; box-shadow:0 0 20px #00bfff; }
+.profile-text { text-align:center; color:#94a3b8; }
+.read-more-box { border:1px solid white; background:white; color:black; display:inline-block; padding:8px 12px; margin-top:10px; cursor:pointer; font-size:12px; }
+.hidden { display:none; }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid #00bfff;
-    align-items: center;
-}
+/* EDUCATION */
+.education-card { max-width:800px; margin:30px auto; padding:20px; border:1px solid #00bfff; border-radius:15px; box-shadow:0 0 15px #00bfff33; }
+.edu-item { margin-bottom:25px; padding:15px; border-left:4px solid #00bfff; }
+.edu-title { font-size:18px; color:white; font-weight:bold; }
+.edu-date { font-size:14px; color:#94a3b8; }
 
-.logo { font-weight: bold; }
+/* SKILLS */
+.skills-container { max-width:800px; margin:30px auto; display:flex; flex-wrap:wrap; gap:10px; }
+.skill-btn { padding:10px 15px; border:1px solid #00bfff; border-radius:20px; background:transparent; color:#00bfff; cursor:pointer; transition:0.3s; }
+.skill-btn:hover { background:#00bfff; color:black; box-shadow:0 0 10px #00bfff; }
 
-.right-menu {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
+/* LANGUAGES */
+.lang-container { max-width:800px; margin:30px auto; display:flex; flex-wrap:wrap; gap:10px; }
+.lang-box { padding:10px 15px; border-radius:20px; border:1px solid white; background:white; color:black; font-size:14px; }
 
-.lang {
-    display: flex;
-    align-items: center;
-}
-
-.lang button {
-    background: transparent;
-    border: 1px solid #00bfff;
-    color: #00bfff;
-    margin-right: 10px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.menu-btn {
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.dropdown {
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background: #020617;
-    border: 1px solid #00bfff;
-    display: none;
-    flex-direction: column;
-}
-
-.dropdown a {
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.dropdown a:hover {
-    background: #00bfff;
-    color: black;
-}
-
-.hero {
-    padding: 20px;
-    min-height: 100vh;
-    text-align: center;
-    background-image: linear-gradient(#00bfff22 1px, transparent 1px),
-                      linear-gradient(90deg, #00bfff22 1px, transparent 1px);
-    background-size: 40px 40px;
-}
-
-h1 { font-size: 12vw; line-height: 1.05; }
-.highlight { color: #00bfff; }
-.white { color: white; }
-
-.desc {
-    color: #94a3b8;
-    margin-top: 20px;
-    font-size: 4vw;
-}
-
-.buttons { margin-top: 30px; }
-
-.btn {
-    padding: 15px 25px;
-    margin-right: 10px;
-    cursor: pointer;
-    font-size: 3.5vw;
-}
-
-.primary { background: #00bfff; color: black; }
-.secondary { border: 1px solid #00bfff; color: #00bfff; background: transparent; }
-
-.profile-card {
-    margin: 40px auto;
-    padding: 20px;
-    max-width: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    border: 1px solid #00bfff;
-    border-radius: 15px;
-}
-
-.profile-img {
-    width: 150px;
-    border-radius: 50%;
-    border: 2px solid #00bfff;
-    box-shadow: 0 0 20px #00bfff;
-}
-
-.profile-text { text-align: center; color: #94a3b8; }
-
-.read-more-box {
-    border: 1px solid white;
-    background: white;
-    color: black;
-    display: inline-block;
-    padding: 8px 12px;
-    margin-top: 10px;
-    cursor: pointer;
-    font-size: 12px;
-}
-
-.hidden { display: none; }
-
-/* EDUCATION STYLE */
-.education-card {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-    border: 1px solid #00bfff;
-    border-radius: 15px;
-    box-shadow: 0 0 15px #00bfff33;
-}
-
-.edu-item {
-    margin-bottom: 25px;
-    padding: 15px;
-    border-left: 4px solid #00bfff;
-}
-
-.edu-title {
-    font-size: 18px;
-    color: white;
-    font-weight: bold;
-}
-
-.edu-date {
-    font-size: 14px;
-    color: #94a3b8;
-}
-
-@media(min-width: 768px) {
-    .profile-card { flex-direction: row; text-align: left; }
-    .profile-text { text-align: left; }
-    h1 { font-size: 90px; }
-    .desc { font-size: 18px; }
-    .btn { font-size: 16px; }
-}
-
-#contact input,
-#contact textarea {
-    display: block;
-    width: 100%;
-    margin-top: 12px;
-}
-
-.send-btn {
-    margin-top: 15px;
-    padding: 12px;
-    background: #00bfff;
-    color: black;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
+@media(min-width:768px){ h1{font-size:90px;} .desc{font-size:18px;} .btn{font-size:16px;} }
+#contact input,#contact textarea{ display:block; width:100%; margin-top:12px; }
+.send-btn{ margin-top:15px; padding:12px; background:#00bfff; color:black; border:none; cursor:pointer; width:100%; }
 </style>
 
 <script>
-function toggleMenu() {
-    let menu = document.getElementById("dropdown");
-    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
-}
-
-function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-}
-
-function toggleReadMore(id) {
-    let el = document.getElementById(id);
-    el.style.display = (el.style.display === "block") ? "none" : "block";
-}
+function toggleMenu(){ let menu=document.getElementById("dropdown"); menu.style.display=(menu.style.display==="flex")?"none":"flex"; }
+function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:"smooth"}); }
+function toggleReadMore(id){ let el=document.getElementById(id); el.style.display=(el.style.display==="block")?"none":"block"; }
 </script>
-
 </head>
 
 <body>
-
 <div class="navbar">
-    <div class="logo">PORTFOLIO</div>
-
-    <div class="right-menu">
-        <div class="lang">
-            <button>FR</button>
-            <button>EN</button>
-        </div>
-        <div class="menu-btn" onclick="toggleMenu()">⋮</div>
-    </div>
+<div class="logo">PORTFOLIO</div>
+<div class="right-menu">
+<div class="lang"><button>FR</button><button>EN</button></div>
+<div class="menu-btn" onclick="toggleMenu()">⋮</div>
+</div>
 </div>
 
 <div id="dropdown" class="dropdown">
-    <a onclick="scrollToSection('home')">Home</a>
-    <a onclick="scrollToSection('about')">About Me</a>
-    <a onclick="scrollToSection('education')">Education</a>
-    <a onclick="scrollToSection('skills')">Skills</a>
-    <a onclick="scrollToSection('languages')">Languages</a>
-    <a onclick="scrollToSection('contact')">Contact</a>
+<a onclick="scrollToSection('home')">Home</a>
+<a onclick="scrollToSection('about')">About Me</a>
+<a onclick="scrollToSection('education')">Education</a>
+<a onclick="scrollToSection('skills')">Skills</a>
+<a onclick="scrollToSection('languages')">Languages</a>
+<a onclick="scrollToSection('contact')">Contact</a>
 </div>
 
 <div id="home" class="hero">
-
 <p>// AVAILABLE FOR OPPORTUNITIES</p>
-
 <h1>
 <span>Hi, I'm</span><br>
 <span class="highlight">Haroum Abdoulkader</span><br>
 <span class="white">AI Engineer.</span>
 </h1>
-
-<p class="desc">
-AI Engineer & Developer<br>
-Specializing in AI, Machine Learning<br>
-Based in Djibouti – Open to work
-</p>
-
-<div class="buttons">
-<a href="Haroum_CV (4).pdf" download>
-<button class="btn primary">Download Resume</button>
-</a>
-<button class="btn secondary">Get In Touch</button>
-</div>
-
-<div class="profile-card">
-<img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg" class="profile-img">
-<p class="profile-text">
-My journey started with mathematics, leading me into AI and Data Science.
-</p>
-</div>
-
+<p class="desc">AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work</p>
 </div>
 
 <section id="about">
 <h2>🏆 Achievements & Experience</h2>
 
-<div style="margin:30px auto; max-width:800px;">
-<img src="AUF.jpeg" style="width:100%; height:250px; object-fit:cover; border-radius:10px;">
-</div>
-
-<p>
 <b>Hackathon CEIT – AUF 2026</b><br><br>
 Built an AI solution for climate risk detection.<br>
 Focused on protecting heritage sites using data.<br>
 Developed under real hackathon conditions.
-<br>
 <div class="read-more-box" onclick="toggleReadMore('hack')">Read more</div>
 <div id="hack" class="hidden">
 <br>
-AI system for analyzing environmental risks using ML.
+Designed and implemented a machine learning pipeline to analyze environmental data and detect climate-related risks affecting historical heritage sites.
+<br><br>
+Worked on data preprocessing, feature selection, and model inference to generate actionable insights.
+<br><br>
+Collaborated in a team environment under strict time constraints, focusing on rapid prototyping and real-world applicability.
 </div>
 
-<hr style="border:1px solid #00bfff; margin:40px 0;">
+<hr>
 
 <b>AI Collective Kuala Lumpur 2025</b><br><br>
 Explored AI tools and innovation trends.<br>
 Connected with industry professionals.<br>
 Learned about developer productivity tools.
-<br>
 <div class="read-more-box" onclick="toggleReadMore('ai')">Read more</div>
 <div id="ai" class="hidden">
 <br>
-Discovered tools like Windsurf and networked with experts.
+Participated in discussions on modern AI systems, automation, and productivity tools like Windsurf.
+<br><br>
+Engaged with experienced professionals, gaining insights into real-world AI applications and career paths.
+<br><br>
+Expanded knowledge in AI-driven development workflows and networking strategies.
 </div>
 
-<hr style="border:1px solid #00bfff; margin:40px 0;">
+<hr>
 
 <b>AWS & Google Cloud Workshop</b><br><br>
 Hands-on with cloud AI tools.<br>
 Worked with BigQuery and AWS AI.<br>
 Learned multi-cloud integration.
-<br>
 <div class="read-more-box" onclick="toggleReadMore('cloud')">Read more</div>
 <div id="cloud" class="hidden">
 <br>
-Practical labs on AI services and deployment.
+Worked on real lab sessions using Google BigQuery for data analytics.
+<br><br>
+Explored AWS AI services including SageMaker and Generative AI tools.
+<br><br>
+Understood how multi-cloud systems can be integrated for scalable AI solutions.
 </div>
 
-<hr style="border:1px solid #00bfff; margin:40px 0;">
+<hr>
 
 <b>CyberDrill Workshop</b><br><br>
 Cybersecurity hands-on experience.<br>
 Red & Blue team strategies.<br>
 Incident response training.
-<br>
 <div class="read-more-box" onclick="toggleReadMore('cyber')">Read more</div>
 <div id="cyber" class="hidden">
 <br>
-Worked on real cyber attack-defense scenarios.
+Simulated real-world cyber attack scenarios.
+<br><br>
+Applied defensive and offensive security techniques.
+<br><br>
+Learned incident response workflows and threat mitigation strategies.
 </div>
-</p>
 </section>
 
 <section id="education">
 <h2>🎓 Education</h2>
-
 <div class="education-card">
-
 <div class="edu-item">
-<div class="edu-title">Master in Artificial Intelligence – APU, Malaysia</div>
+<div class="edu-title">Master in Artificial Intelligence – APU Malaysia</div>
 <div class="edu-date">2025</div>
 </div>
-
 <div class="edu-item">
 <div class="edu-title">Bachelor in Mathematics – University of Djibouti</div>
 <div class="edu-date">2020 – 2023</div>
 </div>
-
 </div>
 </section>
 
 <section id="skills">
-<h2>Skills</h2>
-<p>Python, Machine Learning, AI, Web Development</p>
+<h2>⚡ Skills</h2>
+<div class="skills-container">
+<div class="skill-btn">Python</div>
+<div class="skill-btn">Machine Learning</div>
+<div class="skill-btn">Deep Learning</div>
+<div class="skill-btn">Computer Vision</div>
+<div class="skill-btn">YOLOv8</div>
+<div class="skill-btn">Data Science</div>
+<div class="skill-btn">Web Development</div>
+<div class="skill-btn">Cloud (AWS & GCP)</div>
+</div>
 </section>
 
 <section id="languages">
-<h2>Languages</h2>
-<p>English, French</p>
+<h2>🌍 Languages</h2>
+<div class="lang-container">
+<div class="lang-box">English – Fluent</div>
+<div class="lang-box">French – Native</div>
+<div class="lang-box">Afar – Native</div>
+<div class="lang-box">Japanese – Intermediate</div>
+<div class="lang-box">Somali – Intermediate</div>
+<div class="lang-box">Chinese – Intermediate</div>
+</div>
 </section>
 
 <section id="contact">
