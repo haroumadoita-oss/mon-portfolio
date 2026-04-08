@@ -51,22 +51,23 @@ h1 { font-size:12vw; line-height:1.05; }
 </style>
 
 <script>
-function toggleMenu(){
+function toggleMenu(event){
+    event.stopPropagation();
     const menu = document.getElementById("dropdown");
     if(menu.style.display === "block"){
         menu.style.display = "none";
     } else {
         menu.style.display = "block";
     }
+} else {
+        menu.style.display = "block";
+    }
 }
 
 // close menu when clicking outside
-document.addEventListener('click', function(e){
+document.addEventListener('click', function(){
     const menu = document.getElementById("dropdown");
-    const btn = document.querySelector('.menu-btn');
-    if(!menu.contains(e.target) && !btn.contains(e.target)){
-        menu.style.display = "none";
-    }
+    if(menu){ menu.style.display = "none"; }
 }); else {
         menu.style.display = "block";
     }
@@ -84,6 +85,22 @@ if(lang === 'FR'){
     document.querySelector('#languages h2').innerText = "🌍 Langues";
     document.querySelector('#education h2').innerText = "🎓 Éducation";
     document.querySelector('#contact h2').innerText = "Contact";
+
+    // buttons
+    document.querySelector('.primary').innerText = "Télécharger CV";
+    document.querySelector('.secondary').innerText = "Projets";
+
+} else {
+    document.querySelector('.desc').innerHTML = "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work";
+    document.querySelector('#about h2').innerText = "🏆 Achievements & Experience";
+    document.querySelector('#skills h2').innerText = "⚡ Skills";
+    document.querySelector('#languages h2').innerText = "🌍 Languages";
+    document.querySelector('#education h2').innerText = "🎓 Education";
+    document.querySelector('#contact h2').innerText = "Contact";
+
+    document.querySelector('.primary').innerText = "Download CV";
+    document.querySelector('.secondary').innerText = "Projects";
+}
 } else {
     document.querySelector('.desc').innerHTML = "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work";
     document.querySelector('#about h2').innerText = "🏆 Achievements & Experience";
@@ -144,7 +161,7 @@ function sendEmail(){
 <div class="logo">PORTFOLIO</div>
 <div class="right-menu">
 <div class="lang"><button onclick="setLanguage('FR')">FR</button><button onclick="setLanguage('EN')">EN</button></div>
-<div class="menu-btn" onclick="toggleMenu()">⋮</div>
+<div class="menu-btn" onclick="toggleMenu(event)">⋮</div>
 </div>
 </div>
 
