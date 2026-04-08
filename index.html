@@ -5,228 +5,119 @@
 <title>Cyber Portfolio</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Courier New', monospace;
-    background: #020617;
-    color: #00bfff;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    border-bottom: 1px solid #00bfff;
-    align-items: center;
-}
-
-.logo { font-weight: bold; }
-
-.right-menu {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-}
-
-.lang button {
-    background: transparent;
-    border: 1px solid #00bfff;
-    color: #00bfff;
-    margin-right: 10px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.menu-btn {
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.dropdown {
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background: #020617;
-    border: 1px solid #00bfff;
-    display: none;
-    flex-direction: column;
-}
-
-.dropdown a {
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.dropdown a:hover {
-    background: #00bfff;
-    color: black;
-}
-
-.hero {
-    padding: 20px;
-    min-height: 100vh;
-    text-align: center;
-}
-
-.profile-card {
-    margin: 40px auto;
-    padding: 20px;
-    max-width: 700px;
-    display: flex;
-    gap: 20px;
-    border: 1px solid #00bfff;
-    border-radius: 15px;
-    align-items: center;
-}
-
-.profile-img {
-    width: 150px;
-    border-radius: 50%;
-    border: 2px solid #00bfff;
-}
-
-.read-more-btn {
-    background: white;
-    color: black;
-    padding: 6px 12px;
-    border: none;
-    cursor: pointer;
-}
+/* TON CSS INCHANGÉ */
+body { margin:0; font-family:'Courier New', monospace; background:#020617; color:#00bfff; }
+.navbar { display:flex; justify-content:space-between; padding:20px; border-bottom:1px solid #00bfff; align-items:center; position:relative; }
+.logo { font-weight:bold; }
+.right-menu { display:flex; align-items:center; margin-left:auto; }
+.lang { display:flex; align-items:center; }
+.lang button { background:transparent; border:1px solid #00bfff; color:#00bfff; margin-right:10px; padding:5px 10px; cursor:pointer; }
+.menu-btn { font-size:30px; cursor:pointer; }
+.dropdown { position:absolute; top:70px; right:20px; background:#020617; border:1px solid #00bfff; display:none; flex-direction:column; z-index:9999; min-width:150px; }
+.dropdown a { padding:10px 20px; cursor:pointer; }
+.dropdown a:hover { background:#00bfff; color:black; }
+.hero { padding:20px; min-height:100vh; text-align:center; background-image: linear-gradient(#00bfff22 1px, transparent 1px), linear-gradient(90deg, #00bfff22 1px, transparent 1px); background-size:40px 40px; }
+h1 { font-size:12vw; line-height:1.05; }
+.highlight { color:#00bfff; }
+.white { color:white; }
+.desc { color:#94a3b8; margin-top:20px; font-size:4vw; }
+.buttons { margin-top:30px; }
+.btn { padding:15px 25px; margin-right:10px; cursor:pointer; font-size:3.5vw; }
+.primary { background:#00bfff; color:black; }
+.secondary { border:1px solid #00bfff; color:#00bfff; background:transparent; }
+.profile-card { margin:40px auto; padding:20px; max-width:700px; display:flex; flex-direction:column; align-items:center; gap:20px; border:1px solid #00bfff; border-radius:15px; }
+.profile-img { width:150px; border-radius:50%; border:2px solid #00bfff; box-shadow:0 0 20px #00bfff; }
+.profile-text { text-align:center; color:#94a3b8; }
+.read-more-box { border:1px solid white; background:white; color:black; display:inline-block; padding:8px 12px; margin-top:10px; cursor:pointer; font-size:12px; }
+.hidden { display:none; }
+.education-card { max-width:800px; margin:30px auto; padding:20px; border:1px solid #00bfff; border-radius:15px; box-shadow:0 0 15px #00bfff33; }
+.edu-item { margin-bottom:25px; padding:15px; border-left:4px solid #00bfff; }
+.edu-title { font-size:18px; color:white; font-weight:bold; }
+.edu-date { font-size:14px; color:#94a3b8; }
+.skills-container { max-width:800px; margin:30px auto; display:flex; flex-wrap:wrap; gap:10px; }
+.skill-btn { padding:10px 15px; border:1px solid #00bfff; border-radius:20px; background:transparent; color:#00bfff; cursor:pointer; transition:0.3s; }
+.skill-btn:hover { background:#00bfff; color:black; box-shadow:0 0 10px #00bfff; }
+.lang-container { max-width:800px; margin:30px auto; display:flex; flex-wrap:wrap; gap:10px; }
+.lang-box { padding:10px 15px; border-radius:20px; border:1px solid white; background:white; color:black; font-size:14px; }
+@media(min-width:768px){ h1{font-size:90px;} .desc{font-size:18px;} .btn{font-size:16px;} }
+#contact input,#contact textarea{ display:block; width:100%; margin-top:12px; }
+.send-btn{ margin-top:15px; padding:12px; background:#00bfff; color:black; border:none; cursor:pointer; width:100%; }
 </style>
 
 <script>
-function toggleMenu() {
-    let menu = document.getElementById("dropdown");
+// ✅ MENU FIX
+function toggleMenu(event){
+    event.stopPropagation();
+    const menu = document.getElementById("dropdown");
 
-    if (menu.style.display === "flex") {
+    if(menu.style.display === "block"){
         menu.style.display = "none";
     } else {
-        menu.style.display = "flex";
+        menu.style.display = "block";
     }
 }
 
-function scrollToSection(id) {
-    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+// fermer si clique ailleurs
+document.addEventListener("click", function(){
+    const menu = document.getElementById("dropdown");
+    if(menu){
+        menu.style.display = "none";
+    }
+});
+
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
-function toggleReadMore(id) {
-    let content = document.getElementById(id);
-    content.style.display = content.style.display === "none" ? "block" : "none";
+function toggleReadMore(id){
+    let el = document.getElementById(id);
+    el.style.display = (el.style.display === "block") ? "none" : "block";
 }
 
-function setLang(lang) {
 
-    if(lang === "FR") {
+// 🌍 TRADUCTION CLEAN
+function setLanguage(lang){
 
-        document.getElementById("homeTitle").innerText = "Salut, je suis";
-        document.getElementById("job").innerText = "Ingénieur IA";
-        document.getElementById("desc").innerHTML =
-        "Ingénieur IA & Développeur<br>Spécialisé en IA, Machine Learning<br>Basé à Djibouti – Disponible";
+    if(lang === "FR"){
 
-        document.getElementById("aboutTitle").innerText = "🏆 Réalisations & Expérience";
-        document.getElementById("eduTitle").innerText = "Éducation";
-        document.getElementById("skillsTitle").innerText = "Compétences";
-        document.getElementById("contactTitle").innerText = "Contact";
+        document.querySelector(".desc").innerHTML =
+        "Ingénieur IA & Développeur<br>Spécialisé en IA et Machine Learning<br>Basé à Djibouti – Ouvert aux opportunités";
 
-        document.getElementById("openTitle").innerText = "DISPONIBLE POUR TRAVAIL";
-        document.getElementById("openText").innerText =
-        "Je suis ouvert aux opportunités en data science, IA et développement logiciel.";
+        document.querySelector("#about h2").innerText = "🏆 Expériences & Réalisations";
+        document.querySelector("#skills h2").innerText = "⚡ Compétences";
+        document.querySelector("#languages h2").innerText = "🌍 Langues";
+        document.querySelector("#education h2").innerText = "🎓 Éducation";
+        document.querySelector("#contact h2").innerText = "Contact";
+
+        document.querySelector(".primary").innerText = "Télécharger CV";
+        document.querySelector(".secondary").innerText = "Projets";
 
     } else {
 
-        document.getElementById("homeTitle").innerText = "Hi, I'm";
-        document.getElementById("job").innerText = "AI Engineer";
-        document.getElementById("desc").innerHTML =
+        document.querySelector(".desc").innerHTML =
         "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work";
 
-        document.getElementById("aboutTitle").innerText = "🏆 Achievements & Experience";
-        document.getElementById("eduTitle").innerText = "Education";
-        document.getElementById("skillsTitle").innerText = "Skills";
-        document.getElementById("contactTitle").innerText = "Contact";
+        document.querySelector("#about h2").innerText = "🏆 Achievements & Experience";
+        document.querySelector("#skills h2").innerText = "⚡ Skills";
+        document.querySelector("#languages h2").innerText = "🌍 Languages";
+        document.querySelector("#education h2").innerText = "🎓 Education";
+        document.querySelector("#contact h2").innerText = "Contact";
 
-        document.getElementById("openTitle").innerText = "I'M OPEN TO WORK";
-        document.getElementById("openText").innerText =
-        "I’m open to opportunities in AI, data science and software development.";
+        document.querySelector(".primary").innerText = "Download CV";
+        document.querySelector(".secondary").innerText = "Projects";
     }
+}
+
+
+// 📩 EMAIL OK
+function sendEmail(){
+    let name = document.querySelector('input[type="text"]').value;
+    let email = document.querySelector('input[type="email"]').value;
+    let message = document.querySelector('textarea').value;
+
+    let link = `mailto:haroumadoita@gmail.com?subject=Message from ${name}&body=Email: ${email}%0D%0A%0D%0A${message}`;
+    window.location.href = link;
 }
 </script>
 
 </head>
-
-<body>
-
-<div class="navbar">
-    <div class="logo">PORTFOLIO</div>
-
-    <div class="right-menu">
-        <div class="lang">
-            <button onclick="setLang('FR')">FR</button>
-            <button onclick="setLang('EN')">EN</button>
-        </div>
-
-        <div class="menu-btn" onclick="toggleMenu()">⋮</div>
-    </div>
-</div>
-
-<div id="dropdown" class="dropdown">
-    <a onclick="scrollToSection('home')">Home</a>
-    <a onclick="scrollToSection('about')">About</a>
-    <a onclick="scrollToSection('contact')">Contact</a>
-</div>
-
-<div id="home" class="hero">
-
-    <h1>
-        <span id="homeTitle">Hi, I'm</span><br>
-        <span style="color:#00bfff;">Haroum</span><br>
-        <span id="job">AI Engineer</span>
-    </h1>
-
-    <p id="desc">
-        AI Engineer & Developer<br>
-        Specializing in AI
-    </p>
-
-    <div class="profile-card">
-        <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg" class="profile-img">
-        <p>
-        My journey started in mathematics → AI → real-world systems.
-        </p>
-    </div>
-
-</div>
-
-<section id="about">
-    <h2 id="aboutTitle">🏆 Achievements & Experience</h2>
-
-    <img src="AUF.jpeg" style="width:100%;height:250px;object-fit:cover;">
-
-    <p>
-    <b>Hackathon AUF 2026</b><br>
-    AI system for climate risk prediction.<br>
-    <button class="read-more-btn" onclick="toggleReadMore('hack')">Read more</button>
-
-    <div id="hack" style="display:none;">
-    Full system using AI to predict environmental risks and protect heritage sites.
-    </div>
-    </p>
-</section>
-
-<section id="contact">
-    <h2 id="contactTitle">Contact</h2>
-
-    <h3 id="openTitle">I'M OPEN TO WORK</h3>
-    <p id="openText">
-    Open to opportunities in AI and development.
-    </p>
-
-    <p>Email: haroumadoita@gmail.com</p>
-
-    <input placeholder="Name">
-    <input placeholder="Email">
-    <textarea placeholder="Message"></textarea>
-    <button>Send Message</button>
-</section>
-
-</body>
-</html>
