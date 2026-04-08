@@ -1,3 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Portfolio</title>
+
+<style>
+/* (TON CSS RESTE EXACTEMENT LE MÊME) */
+body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    background: #020617;
+    color: #00bfff;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #00bfff;
+    align-items: center;
+}
+
+.logo { font-weight: bold; }
+
+.right-menu {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.lang {
+    display: flex;
+    align-items: center;
+}
+
+.lang button {
+    background: transparent;
+    border: 1px solid #00bfff;
+    color: #00bfff;
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.menu-btn {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #020617;
+    border: 1px solid #00bfff;
+    display: none;
+    flex-direction: column;
+}
+
+.dropdown a {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.dropdown a:hover {
+    background: #00bfff;
+    color: black;
+}
+
+.hero {
+    padding: 20px;
+    min-height: 100vh;
+    text-align: center;
+
+    background-image: linear-gradient(#00bfff22 1px, transparent 1px),
+                      linear-gradient(90deg, #00bfff22 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+h1 {
+    font-size: 12vw;
+    line-height: 1.05;
+}
+
+.highlight { color: #00bfff; }
+.white { color: white; }
+
+.desc {
+    color: #94a3b8;
+    margin-top: 20px;
+    font-size: 4vw;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 15px 25px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 3.5vw;
+}
+
+.primary {
+    background: #00bfff;
+    color: black;
+}
+
+.secondary {
+    border: 1px solid #00bfff;
+    color: #00bfff;
+    background: transparent;
+}
+
+.profile-card {
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #00bfff;
+    border-radius: 15px;
+}
+
+.profile-img {
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid #00bfff;
+    box-shadow: 0 0 20px #00bfff;
+}
+
+.profile-text {
+    text-align: center;
+    color: #94a3b8;
+}
+
+@media(min-width: 768px) {
+    .profile-card {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .profile-text {
+        text-align: left;
+    }
+}
+
+@media(min-width: 768px) {
+    h1 { font-size: 90px; }
+    .desc { font-size: 18px; }
+    .btn { font-size: 16px; }
+}
+
+#contact input,
+#contact textarea {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.send-btn {
+    margin-top: 15px;
+    padding: 12px;
+    background: #00bfff;
+    color: black;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+</style>
+
+<script>
+function toggleMenu() {
+    let menu = document.getElementById("dropdown");
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+}
+
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+</head>
+
+<body>
+
+<!-- NAVBAR + HERO (inchangé) -->
+
+<div id="home" class="hero">
+    ...
+</div>
+
+<!-- 🔥 SECTION MODIFIÉE UNIQUEMENT -->
 <section id="about">
     <h2 id="aboutText">🏆 Achievements & Experience</h2>
 
@@ -7,72 +204,36 @@
             height:250px;
             object-fit:cover;
             border-radius:10px;
-            display:block;
         ">
     </div>
 
     <p>
-    Finale du Hackathon CEIT – AUF 2026 : Imaginer des solutions durables avec l’IA 🌱🤖
+    Finale du Hackathon CEIT – AUF 2026 🌱🤖
     <br><br>
-    Participation à la journée finale du Hackathon.
+    AI system for climate risk assessment of heritage sites.
     <br><br>
-    📊 Projet :
-    <br>
-    Système d’évaluation des risques climatiques pour les sites patrimoniaux utilisant l’intelligence artificielle.
-    <br><br>
-    💡 Utilisation de l’IA pour prédire les risques climatiques.
-    <br><br>
-    🌍 Impact :
-    <br>
-    • Anticipation des risques  
-    <br>
-    • Protection des sites  
-    <br>
-    • Décisions basées sur les données  
-    <br><br>
-    🎓 Certificat de participation obtenu.
-    <br><br>
-    ✨ Expérience enrichissante en IA et développement durable.
-    <br><br><br>
 
     <hr style="border:1px solid #00bfff; margin:40px 0;">
 
-    <b>The AI Collective Kuala Lumpur 2025</b>
+    <b>AI Collective Kuala Lumpur 2025</b>
     <br><br>
-    I attended an inspiring Artificial Intelligence event.
+    AI event + networking with professionals.
     <br><br>
-    💡 Highlight:
-    <br>
-    AI-powered tools improving developer productivity.
-    <br><br>
-    🤝 Networking:
-    <br>
-    Connected with professionals and learned from their expertise.
-    <br><br><br>
 
     <hr style="border:1px solid #00bfff; margin:40px 0;">
 
-    <b>AI & Cloud Workshop (AWS & Google Cloud)</b>
+    <b>AWS & Google Cloud Workshop</b>
     <br><br>
-    Hands-on workshop combining Google Cloud and AWS for AI and Machine Learning.
+    BigQuery, Generative AI, multi-cloud integration.
     <br><br>
-    💡 Key Learnings:
-    <br>
-    • BigQuery data analytics  
-    <br>
-    • Generative AI tools (SageMaker)  
-    <br>
-    • Multi-cloud integration  
-    <br><br><br>
 
     <hr style="border:1px solid #00bfff; margin:40px 0;">
 
-    <b>CyberDrill: Think Red, React Blue</b>
+    <b>CyberDrill Workshop</b>
     <br><br>
-    Hands-on cybersecurity workshop on incident response and red/blue team strategies.
-    <br><br>
-    💡 Outcome:
-    <br>
-    Gained practical experience in cybersecurity operations and defense strategies.
+    Hands-on cybersecurity & red/blue team strategies.
     </p>
 </section>
+
+</body>
+</html>
