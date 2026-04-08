@@ -5,354 +5,227 @@
 <title>Cyber Portfolio</title>
 
 <style>
-body { margin:0; font-family:'Courier New', monospace; background:#020617; color:#00bfff; }
-.navbar { display:flex; justify-content:space-between; padding:20px; border-bottom:1px solid #00bfff; align-items:center; position:relative; }
-.logo { font-weight:bold; }
-.right-menu { display:flex; align-items:center; margin-left:auto; }
-.lang { display:flex; align-items:center; }
-.lang button { background:transparent; border:1px solid #00bfff; color:#00bfff; margin-right:10px; padding:5px 10px; cursor:pointer; }
-.menu-btn { font-size:30px; cursor:pointer; }
-.dropdown { position:absolute; top:70px; right:20px; background:#020617; border:1px solid #00bfff; display:none; flex-direction:column; z-index:9999; min-width:150px; }
-.dropdown a { padding:10px 20px; cursor:pointer; }
-.dropdown a:hover { background:#00bfff; color:black; }
-.hero { padding:20px; min-height:100vh; text-align:center; background-image: linear-gradient(#00bfff22 1px, transparent 1px), linear-gradient(90deg, #00bfff22 1px, transparent 1px); background-size:40px 40px; }
-h1 { font-size:12vw; line-height:1.05; }
-.highlight { color:#00bfff; }
-.white { color:white; }
-.desc { color:#94a3b8; margin-top:20px; font-size:4vw; }
-.buttons { margin-top:30px; }
-.btn { padding:15px 25px; margin-right:10px; cursor:pointer; font-size:3.5vw; }
-.primary { background:#00bfff; color:black; }
-.secondary { border:1px solid #00bfff; color:#00bfff; background:transparent; }
-.profile-card { margin:40px auto; padding:20px; max-width:700px; display:flex; flex-direction:column; align-items:center; gap:20px; border:1px solid #00bfff; border-radius:15px; }
-.profile-img { width:150px; border-radius:50%; border:2px solid #00bfff; box-shadow:0 0 20px #00bfff; }
-.profile-text { text-align:center; color:#94a3b8; }
-.read-more-box { border:1px solid white; background:white; color:black; display:inline-block; padding:8px 12px; margin-top:10px; cursor:pointer; font-size:12px; }
-.hidden { display:none; }
+body {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    background: #020617;
+    color: #00bfff;
+}
 
-/* EDUCATION */
-.education-card { max-width:800px; margin:30px auto; padding:20px; border:1px solid #00bfff; border-radius:15px; box-shadow:0 0 15px #00bfff33; }
-.edu-item { margin-bottom:25px; padding:15px; border-left:4px solid #00bfff; }
-.edu-title { font-size:18px; color:white; font-weight:bold; }
-.edu-date { font-size:14px; color:#94a3b8; }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #00bfff;
+    align-items: center;
+}
 
-/* SKILLS */
-.skills-container { max-width:800px; margin:30px auto; display:flex; flex-wrap:wrap; gap:10px; }
-.skill-btn { padding:10px 15px; border:1px solid #00bfff; border-radius:20px; background:transparent; color:#00bfff; cursor:pointer; transition:0.3s; }
-.skill-btn:hover { background:#00bfff; color:black; box-shadow:0 0 10px #00bfff; }
+.logo { font-weight: bold; }
 
-/* LANGUAGES */
-.lang-container { max-width:800px; margin:30px auto; display:flex; flex-wrap:wrap; gap:10px; }
-.lang-box { padding:10px 15px; border-radius:20px; border:1px solid white; background:white; color:black; font-size:14px; }
+.right-menu {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
 
-@media(min-width:768px){ h1{font-size:90px;} .desc{font-size:18px;} .btn{font-size:16px;} }
-#contact input,#contact textarea{ display:block; width:100%; margin-top:12px; }
-.send-btn{ margin-top:15px; padding:12px; background:#00bfff; color:black; border:none; cursor:pointer; width:100%; }
+.lang button {
+    background: transparent;
+    border: 1px solid #00bfff;
+    color: #00bfff;
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.menu-btn {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #020617;
+    border: 1px solid #00bfff;
+    display: none;
+    flex-direction: column;
+}
+
+.dropdown a {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.dropdown a:hover {
+    background: #00bfff;
+    color: black;
+}
+
+.hero {
+    padding: 20px;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.profile-card {
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 700px;
+    display: flex;
+    gap: 20px;
+    border: 1px solid #00bfff;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.profile-img {
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid #00bfff;
+}
+
+.read-more-btn {
+    background: white;
+    color: black;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+}
 </style>
 
 <script>
-function toggleMenu(event){
-    event.stopPropagation();
-    const menu = document.getElementById("dropdown");
-    if(menu.style.display === "block"){
+function toggleMenu() {
+    let menu = document.getElementById("dropdown");
+
+    if (menu.style.display === "flex") {
         menu.style.display = "none";
     } else {
-        menu.style.display = "block";
-    }
-} else {
-        menu.style.display = "block";
+        menu.style.display = "flex";
     }
 }
 
-// close menu when clicking outside
-document.addEventListener('click', function(){
-    const menu = document.getElementById("dropdown");
-    if(menu){ menu.style.display = "none"; }
-}); else {
-        menu.style.display = "block";
+function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+}
+
+function toggleReadMore(id) {
+    let content = document.getElementById(id);
+    content.style.display = content.style.display === "none" ? "block" : "none";
+}
+
+function setLang(lang) {
+
+    if(lang === "FR") {
+
+        document.getElementById("homeTitle").innerText = "Salut, je suis";
+        document.getElementById("job").innerText = "Ingénieur IA";
+        document.getElementById("desc").innerHTML =
+        "Ingénieur IA & Développeur<br>Spécialisé en IA, Machine Learning<br>Basé à Djibouti – Disponible";
+
+        document.getElementById("aboutTitle").innerText = "🏆 Réalisations & Expérience";
+        document.getElementById("eduTitle").innerText = "Éducation";
+        document.getElementById("skillsTitle").innerText = "Compétences";
+        document.getElementById("contactTitle").innerText = "Contact";
+
+        document.getElementById("openTitle").innerText = "DISPONIBLE POUR TRAVAIL";
+        document.getElementById("openText").innerText =
+        "Je suis ouvert aux opportunités en data science, IA et développement logiciel.";
+
+    } else {
+
+        document.getElementById("homeTitle").innerText = "Hi, I'm";
+        document.getElementById("job").innerText = "AI Engineer";
+        document.getElementById("desc").innerHTML =
+        "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work";
+
+        document.getElementById("aboutTitle").innerText = "🏆 Achievements & Experience";
+        document.getElementById("eduTitle").innerText = "Education";
+        document.getElementById("skillsTitle").innerText = "Skills";
+        document.getElementById("contactTitle").innerText = "Contact";
+
+        document.getElementById("openTitle").innerText = "I'M OPEN TO WORK";
+        document.getElementById("openText").innerText =
+        "I’m open to opportunities in AI, data science and software development.";
     }
-} else { menu.style.display = "flex"; } }
-function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:"smooth"}); }
-function toggleReadMore(id){ let el=document.getElementById(id); el.style.display=(el.style.display==="block")?"none":"block"; }
-
-// 🌐 SIMPLE FULL TRANSLATION (Google)
-function setLanguage(lang){
-
-if(lang === 'FR'){
-    document.querySelector('.desc').innerHTML = "Ingénieur IA & Développeur<br>Spécialisé en IA et Machine Learning<br>Basé à Djibouti – Ouvert aux opportunités";
-    document.querySelector('#about h2').innerText = "🏆 Expériences & Réalisations";
-    document.querySelector('#skills h2').innerText = "⚡ Compétences";
-    document.querySelector('#languages h2').innerText = "🌍 Langues";
-    document.querySelector('#education h2').innerText = "🎓 Éducation";
-    document.querySelector('#contact h2').innerText = "Contact";
-
-    // buttons
-    document.querySelector('.primary').innerText = "Télécharger CV";
-    document.querySelector('.secondary').innerText = "Projets";
-
-} else {
-    document.querySelector('.desc').innerHTML = "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work";
-    document.querySelector('#about h2').innerText = "🏆 Achievements & Experience";
-    document.querySelector('#skills h2').innerText = "⚡ Skills";
-    document.querySelector('#languages h2').innerText = "🌍 Languages";
-    document.querySelector('#education h2').innerText = "🎓 Education";
-    document.querySelector('#contact h2').innerText = "Contact";
-
-    document.querySelector('.primary').innerText = "Download CV";
-    document.querySelector('.secondary').innerText = "Projects";
-}
-} else {
-    document.querySelector('.desc').innerHTML = "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work";
-    document.querySelector('#about h2').innerText = "🏆 Achievements & Experience";
-    document.querySelector('#skills h2').innerText = "⚡ Skills";
-    document.querySelector('#languages h2').innerText = "🌍 Languages";
-    document.querySelector('#education h2').innerText = "🎓 Education";
-    document.querySelector('#contact h2').innerText = "Contact";
-}
-} else {
-        location.reload();
-    }
-} else {
-        window.location.reload();
-    }
-},
-FR: {
-about: "🏆 Expériences & Réalisations",
-education: "🎓 Éducation",
-skills: "⚡ Compétences",
-languages: "🌍 Langues",
-contact: "Contact",
-open: "DISPONIBLE POUR TRAVAIL",
-desc: "Ingénieur IA & Développeur<br>Spécialisé en IA, Machine Learning<br>Basé à Djibouti – Ouvert aux opportunités"
-}
-};
-
-// change main description
- document.querySelector('.desc').innerHTML = translations[lang].desc;
-
-// change section titles
- document.querySelector('#about h2').innerText = translations[lang].about;
- document.querySelector('#education h2').innerText = translations[lang].education;
- document.querySelector('#skills h2').innerText = translations[lang].skills;
- document.querySelector('#languages h2').innerText = translations[lang].languages;
- document.querySelector('#contact h2').innerText = translations[lang].contact;
-
-// open to work text
- let openText = document.querySelector('#contact h3');
- if(openText){ openText.innerText = translations[lang].open; }
-}
-}
-
-// 📩 EMAIL (mailto simple)
-function sendEmail(){
-    let name = document.querySelector('input[type="text"]').value;
-    let email = document.querySelector('input[type="email"]').value;
-    let message = document.querySelector('textarea').value;
-
-    let mailtoLink = `mailto:haroumadoita@gmail.com?subject=Portfolio Contact from ${name}&body=Email: ${email}%0D%0A%0D%0A${message}`;
-
-    window.location.href = mailtoLink;
 }
 </script>
+
 </head>
 
 <body>
+
 <div class="navbar">
-<div class="logo">PORTFOLIO</div>
-<div class="right-menu">
-<div class="lang"><button onclick="setLanguage('FR')">FR</button><button onclick="setLanguage('EN')">EN</button></div>
-<div class="menu-btn" onclick="toggleMenu(event)">⋮</div>
-</div>
+    <div class="logo">PORTFOLIO</div>
+
+    <div class="right-menu">
+        <div class="lang">
+            <button onclick="setLang('FR')">FR</button>
+            <button onclick="setLang('EN')">EN</button>
+        </div>
+
+        <div class="menu-btn" onclick="toggleMenu()">⋮</div>
+    </div>
 </div>
 
 <div id="dropdown" class="dropdown">
-<a onclick="scrollToSection('home')">Home</a>
-<a onclick="scrollToSection('about')">About Me</a>
-<a onclick="scrollToSection('education')">Education</a>
-<a onclick="scrollToSection('skills')">Skills</a>
-<a onclick="scrollToSection('languages')">Languages</a>
-<a onclick="scrollToSection('contact')">Contact</a>
+    <a onclick="scrollToSection('home')">Home</a>
+    <a onclick="scrollToSection('about')">About</a>
+    <a onclick="scrollToSection('contact')">Contact</a>
 </div>
 
 <div id="home" class="hero">
-<p>// AVAILABLE FOR OPPORTUNITIES</p>
-<h1>
-<span>Hi, I'm</span><br>
-<span class="highlight">Haroum Abdoulkader</span><br>
-<span class="white">AI Engineer.</span>
-</h1>
-<p class="desc">AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work</p>
 
-<div class="buttons">
-    <a href="Haroum_CV (4).pdf" download>
-        <button class="btn primary">Download CV</button>
-    </a>
-    <button class="btn secondary" onclick="scrollToSection('contact')">Projects</button>
-</div>
+    <h1>
+        <span id="homeTitle">Hi, I'm</span><br>
+        <span style="color:#00bfff;">Haroum</span><br>
+        <span id="job">AI Engineer</span>
+    </h1>
 
-<div class="profile-card">
-    <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg" class="profile-img">
-    <p class="profile-text">
-    My journey started with a background in mathematics, which led me to Artificial Intelligence and Data Science.
-    I build intelligent systems that solve real-world problems and continuously improve my skills in AI, cloud, and cybersecurity.
+    <p id="desc">
+        AI Engineer & Developer<br>
+        Specializing in AI
     </p>
-</div>
+
+    <div class="profile-card">
+        <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg" class="profile-img">
+        <p>
+        My journey started in mathematics → AI → real-world systems.
+        </p>
+    </div>
+
 </div>
 
 <section id="about">
-<h2>🏆 Achievements & Experience</h2>
+    <h2 id="aboutTitle">🏆 Achievements & Experience</h2>
 
-<div style="margin:30px auto; max-width:800px;">
-    <img src="AUF.jpeg" style="width:100%; height:250px; object-fit:cover; border-radius:10px;">
-</div>
+    <img src="AUF.jpeg" style="width:100%;height:250px;object-fit:cover;">
 
-<p>
-<b>Hackathon CEIT – AUF 2026</b><br><br>
-Built an AI solution for climate risk detection.<br>
-Focused on protecting heritage sites using data.<br>
-Developed under real hackathon conditions.
-</p>
+    <p>
+    <b>Hackathon AUF 2026</b><br>
+    AI system for climate risk prediction.<br>
+    <button class="read-more-btn" onclick="toggleReadMore('hack')">Read more</button>
 
-<div class="read-more-box" onclick="toggleReadMore('hack')">Read more</div>
-<div id="hack" class="hidden">
-<br>
-This project focused on designing an intelligent system capable of identifying climate risks affecting historical and cultural heritage sites.
-<br><br>
-We implemented a machine learning pipeline including data collection, preprocessing, feature engineering, and model evaluation.
-<br><br>
-The system aimed to provide early warning insights for environmental threats such as erosion, flooding, and temperature variation.
-<br><br>
-The hackathon environment required rapid prototyping, teamwork, and efficient problem-solving under time constraints.
-</div>
-
-<hr style="border:1px solid #00bfff; margin:40px 0;">
-
-<p>
-<b>AI Collective Kuala Lumpur 2025</b><br><br>
-Explored AI tools and innovation trends.<br>
-Connected with industry professionals.<br>
-Learned about developer productivity tools.
-</p>
-
-<div class="read-more-box" onclick="toggleReadMore('ai')">Read more</div>
-<div id="ai" class="hidden">
-<br>
-Participated in a professional AI event focused on emerging technologies and real-world applications.
-<br><br>
-Engaged in discussions about AI-driven development, automation tools, and future trends in machine learning.
-<br><br>
-Networked with engineers, researchers, and industry experts to understand career opportunities and industry expectations.
-</div>
-
-<hr style="border:1px solid #00bfff; margin:40px 0;">
-
-<p>
-<b>AWS & Google Cloud Workshop</b><br><br>
-Hands-on with cloud AI tools.<br>
-Worked with BigQuery and AWS AI.<br>
-Learned multi-cloud integration.
-</p>
-
-<div class="read-more-box" onclick="toggleReadMore('cloud')">Read more</div>
-<div id="cloud" class="hidden">
-<br>
-Worked on practical labs using Google BigQuery for large-scale data analysis.
-<br><br>
-Explored AWS services such as SageMaker and Generative AI tools for model development and deployment.
-<br><br>
-Understood how combining multiple cloud platforms improves scalability, flexibility, and performance.
-</div>
-
-<hr style="border:1px solid #00bfff; margin:40px 0;">
-
-<p>
-<b>CyberDrill Workshop</b><br><br>
-Cybersecurity hands-on experience.<br>
-Red & Blue team strategies.<br>
-Incident response training.
-</p>
-
-<div class="read-more-box" onclick="toggleReadMore('cyber')">Read more</div>
-<div id="cyber" class="hidden">
-<br>
-Simulated real-world cyberattacks and practiced both offensive and defensive cybersecurity techniques.
-<br><br>
-Learned how to detect vulnerabilities, respond to incidents, and secure systems effectively.
-<br><br>
-Gained practical experience in ethical hacking and threat mitigation strategies.
-</div>
-
-</section>
-
-<section id="education">
-<h2>🎓 Education</h2>
-<div class="education-card">
-<div class="edu-item">
-<div class="edu-title">Master in Artificial Intelligence – APU Malaysia</div>
-<div class="edu-date">2025</div>
-</div>
-<div class="edu-item">
-<div class="edu-title">Bachelor in Mathematics – University of Djibouti</div>
-<div class="edu-date">2020 – 2023</div>
-</div>
-</div>
-</section>
-
-<section id="skills">
-<h2>⚡ Skills</h2>
-<div class="skills-container">
-<div class="skill-btn">Python</div>
-<div class="skill-btn">Machine Learning</div>
-<div class="skill-btn">Deep Learning</div>
-<div class="skill-btn">Computer Vision</div>
-<div class="skill-btn">YOLOv8</div>
-<div class="skill-btn">Data Science</div>
-<div class="skill-btn">Web Development</div>
-<div class="skill-btn">Cloud (AWS & GCP)</div>
-<div class="skill-btn">TensorFlow</div>
-<div class="skill-btn">PyTorch</div>
-<div class="skill-btn">OpenCV</div>
-<div class="skill-btn">SQL</div>
-<div class="skill-btn">Docker</div>
-<div class="skill-btn">Git & GitHub</div>
-</div>
-</section>
-
-<section id="languages">
-<h2>🌍 Languages</h2>
-<div class="lang-container">
-<div class="lang-box">English – Fluent</div>
-<div class="lang-box">French – Native</div>
-<div class="lang-box">Afar – Native</div>
-<div class="lang-box">Japanese – Intermediate</div>
-<div class="lang-box">Somali – Intermediate</div>
-<div class="lang-box">Chinese – Intermediate</div>
-</div>
+    <div id="hack" style="display:none;">
+    Full system using AI to predict environmental risks and protect heritage sites.
+    </div>
+    </p>
 </section>
 
 <section id="contact">
-<h2>Contact</h2>
+    <h2 id="contactTitle">Contact</h2>
 
-<h3>I'M OPEN TO WORK</h3>
-<p>
-I’m always open to exciting opportunities in data science, machine learning, and software development. Whether you have a project, collaboration idea, or just want to connect, feel free to reach out anytime. Let’s create something impactful together!
-</p>
+    <h3 id="openTitle">I'M OPEN TO WORK</h3>
+    <p id="openText">
+    Open to opportunities in AI and development.
+    </p>
 
-<p>Email: haroumadoita@gmail.com</p>
-<input type="text" placeholder="Your full name">
-<input type="email" placeholder="Your email address">
-<textarea placeholder="Write your message here..."></textarea>
-<button class="send-btn" onclick="sendEmail()">Send Message</button>
+    <p>Email: haroumadoita@gmail.com</p>
 
-<div style="margin-top:20px; display:flex; gap:15px; justify-content:center;">
-<a href="https://www.instagram.com/ben_haroum?igsh=dzNreW9iMHN5eTFy&utm_source=qr" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="30">
-</a>
-<a href="https://www.linkedin.com/in/haroum-abdoulkader-385a5b331" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="30">
-</a>
-</div>
-
+    <input placeholder="Name">
+    <input placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+    <button>Send Message</button>
 </section>
 
 </body>
