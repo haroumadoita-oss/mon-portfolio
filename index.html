@@ -54,6 +54,26 @@ h1 { font-size:12vw; line-height:1.05; }
 function toggleMenu(){ let menu=document.getElementById("dropdown"); menu.style.display=(menu.style.display==="flex")?"none":"flex"; }
 function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:"smooth"}); }
 function toggleReadMore(id){ let el=document.getElementById(id); el.style.display=(el.style.display==="block")?"none":"block"; }
+
+// 🌐 TRANSLATION SYSTEM
+function setLanguage(lang){
+    if(lang === 'FR'){
+        document.querySelector('.desc').innerHTML = "Ingénieur IA & Développeur<br>Spécialisé en IA, Machine Learning<br>Basé à Djibouti – Ouvert aux opportunités";
+    } else {
+        document.querySelector('.desc').innerHTML = "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work";
+    }
+}
+
+// 📩 EMAIL (mailto simple)
+function sendEmail(){
+    let name = document.querySelector('input[type="text"]').value;
+    let email = document.querySelector('input[type="email"]').value;
+    let message = document.querySelector('textarea').value;
+
+    let mailtoLink = `mailto:haroumadoita@gmail.com?subject=Portfolio Contact from ${name}&body=Email: ${email}%0D%0A%0D%0A${message}`;
+
+    window.location.href = mailtoLink;
+}
 </script>
 </head>
 
@@ -61,7 +81,7 @@ function toggleReadMore(id){ let el=document.getElementById(id); el.style.displa
 <div class="navbar">
 <div class="logo">PORTFOLIO</div>
 <div class="right-menu">
-<div class="lang"><button>FR</button><button>EN</button></div>
+<div class="lang"><button onclick="setLanguage('FR')">FR</button><button onclick="setLanguage('EN')">EN</button></div>
 <div class="menu-btn" onclick="toggleMenu()">⋮</div>
 </div>
 </div>
@@ -243,7 +263,7 @@ I’m always open to exciting opportunities in data science, machine learning, a
 <input type="text" placeholder="Your full name">
 <input type="email" placeholder="Your email address">
 <textarea placeholder="Write your message here..."></textarea>
-<button class="send-btn">Send Message</button>
+<button class="send-btn" onclick="sendEmail()">Send Message</button>
 
 <div style="margin-top:20px; display:flex; gap:15px; justify-content:center;">
 <a href="https://www.instagram.com/ben_haroum?igsh=dzNreW9iMHN5eTFy&utm_source=qr" target="_blank">
