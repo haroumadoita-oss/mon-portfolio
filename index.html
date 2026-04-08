@@ -71,17 +71,12 @@ body {
     padding: 20px;
     min-height: 100vh;
     text-align: center;
-
     background-image: linear-gradient(#00bfff22 1px, transparent 1px),
                       linear-gradient(90deg, #00bfff22 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
-h1 {
-    font-size: 12vw;
-    line-height: 1.05;
-}
-
+h1 { font-size: 12vw; line-height: 1.05; }
 .highlight { color: #00bfff; }
 .white { color: white; }
 
@@ -91,9 +86,7 @@ h1 {
     font-size: 4vw;
 }
 
-.buttons {
-    margin-top: 30px;
-}
+.buttons { margin-top: 30px; }
 
 .btn {
     padding: 15px 25px;
@@ -102,16 +95,8 @@ h1 {
     font-size: 3.5vw;
 }
 
-.primary {
-    background: #00bfff;
-    color: black;
-}
-
-.secondary {
-    border: 1px solid #00bfff;
-    color: #00bfff;
-    background: transparent;
-}
+.primary { background: #00bfff; color: black; }
+.secondary { border: 1px solid #00bfff; color: #00bfff; background: transparent; }
 
 .profile-card {
     margin: 40px auto;
@@ -132,10 +117,7 @@ h1 {
     box-shadow: 0 0 20px #00bfff;
 }
 
-.profile-text {
-    text-align: center;
-    color: #94a3b8;
-}
+.profile-text { text-align: center; color: #94a3b8; }
 
 .read-more-box {
     border: 1px solid white;
@@ -148,22 +130,38 @@ h1 {
     font-size: 12px;
 }
 
-.hidden {
-    display: none;
+.hidden { display: none; }
+
+/* EDUCATION STYLE */
+.education-card {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #00bfff;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #00bfff33;
+}
+
+.edu-item {
+    margin-bottom: 25px;
+    padding: 15px;
+    border-left: 4px solid #00bfff;
+}
+
+.edu-title {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+}
+
+.edu-date {
+    font-size: 14px;
+    color: #94a3b8;
 }
 
 @media(min-width: 768px) {
-    .profile-card {
-        flex-direction: row;
-        text-align: left;
-    }
-
-    .profile-text {
-        text-align: left;
-    }
-}
-
-@media(min-width: 768px) {
+    .profile-card { flex-direction: row; text-align: left; }
+    .profile-text { text-align: left; }
     h1 { font-size: 90px; }
     .desc { font-size: 18px; }
     .btn { font-size: 16px; }
@@ -197,9 +195,9 @@ function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 }
 
-function toggleReadMore() {
-    let more = document.getElementById("moreText");
-    more.style.display = (more.style.display === "block") ? "none" : "block";
+function toggleReadMore(id) {
+    let el = document.getElementById(id);
+    el.style.display = (el.style.display === "block") ? "none" : "block";
 }
 </script>
 
@@ -215,7 +213,6 @@ function toggleReadMore() {
             <button>FR</button>
             <button>EN</button>
         </div>
-
         <div class="menu-btn" onclick="toggleMenu()">⋮</div>
     </div>
 </div>
@@ -231,103 +228,131 @@ function toggleReadMore() {
 
 <div id="home" class="hero">
 
-    <p>// AVAILABLE FOR OPPORTUNITIES</p>
+<p>// AVAILABLE FOR OPPORTUNITIES</p>
 
-    <h1>
-        <span>Hi, I'm</span><br>
-        <span class="highlight">Haroum Abdoulkader</span><br>
-        <span class="white">AI Engineer.</span>
-    </h1>
+<h1>
+<span>Hi, I'm</span><br>
+<span class="highlight">Haroum Abdoulkader</span><br>
+<span class="white">AI Engineer.</span>
+</h1>
 
-    <p class="desc">
-        AI Engineer & Developer<br>
-        Specializing in AI, Machine Learning<br>
-        Based in Djibouti – Open to work
-    </p>
+<p class="desc">
+AI Engineer & Developer<br>
+Specializing in AI, Machine Learning<br>
+Based in Djibouti – Open to work
+</p>
 
-    <div class="buttons">
-        <a href="Haroum_CV (4).pdf" download>
-            <button class="btn primary">Download Resume</button>
-        </a>
-        <button class="btn secondary">Get In Touch</button>
-    </div>
+<div class="buttons">
+<a href="Haroum_CV (4).pdf" download>
+<button class="btn primary">Download Resume</button>
+</a>
+<button class="btn secondary">Get In Touch</button>
+</div>
 
-    <div class="profile-card">
-        <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg" class="profile-img">
-        <p class="profile-text">
-        My journey started with a background in mathematics, which led me to Artificial Intelligence and Data Science. 
-        I build intelligent systems that solve real-world problems.
-        </p>
-    </div>
+<div class="profile-card">
+<img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg" class="profile-img">
+<p class="profile-text">
+My journey started with mathematics, leading me into AI and Data Science.
+</p>
+</div>
 
 </div>
 
 <section id="about">
-    <h2>🏆 Achievements & Experience</h2>
+<h2>🏆 Achievements & Experience</h2>
 
-    <div style="margin:30px auto; max-width:800px;">
-        <img src="AUF.jpeg" style="width:100%; height:250px; object-fit:cover; border-radius:10px;">
-    </div>
+<div style="margin:30px auto; max-width:800px;">
+<img src="AUF.jpeg" style="width:100%; height:250px; object-fit:cover; border-radius:10px;">
+</div>
 
-    <p>
-    <b>Hackathon CEIT – AUF 2026</b><br><br>
-    Built an AI solution for climate risk detection.<br>
-    Focused on protecting heritage sites using data.<br>
-    Developed under real hackathon conditions.
-    <br>
-    <div class="read-more-box" onclick="toggleReadMore()">Read more</div>
+<p>
+<b>Hackathon CEIT – AUF 2026</b><br><br>
+Built an AI solution for climate risk detection.<br>
+Focused on protecting heritage sites using data.<br>
+Developed under real hackathon conditions.
+<br>
+<div class="read-more-box" onclick="toggleReadMore('hack')">Read more</div>
+<div id="hack" class="hidden">
+<br>
+AI system for analyzing environmental risks using ML.
+</div>
 
-    <div id="moreText" class="hidden">
-    <br>
-    This project focused on developing an AI-powered system capable of assessing climate risks affecting cultural and heritage sites. 
-    The solution used data analysis and machine learning techniques to detect environmental threats such as temperature changes and environmental degradation.
-    <br><br>
-    The project was built during a hackathon, requiring rapid prototyping, teamwork, and efficient problem-solving under time constraints.
-    <br><br>
-    This experience strengthened my skills in AI development, collaboration, and applying theoretical knowledge to real-world challenges.
-    </div>
+<hr style="border:1px solid #00bfff; margin:40px 0;">
 
-    <hr style="border:1px solid #00bfff; margin:40px 0;">
+<b>AI Collective Kuala Lumpur 2025</b><br><br>
+Explored AI tools and innovation trends.<br>
+Connected with industry professionals.<br>
+Learned about developer productivity tools.
+<br>
+<div class="read-more-box" onclick="toggleReadMore('ai')">Read more</div>
+<div id="ai" class="hidden">
+<br>
+Discovered tools like Windsurf and networked with experts.
+</div>
 
-    <b>AI Collective Kuala Lumpur 2025</b><br><br>
-    AI event + networking with professionals.
-    <br><br>
+<hr style="border:1px solid #00bfff; margin:40px 0;">
 
-    <hr style="border:1px solid #00bfff; margin:40px 0;">
+<b>AWS & Google Cloud Workshop</b><br><br>
+Hands-on with cloud AI tools.<br>
+Worked with BigQuery and AWS AI.<br>
+Learned multi-cloud integration.
+<br>
+<div class="read-more-box" onclick="toggleReadMore('cloud')">Read more</div>
+<div id="cloud" class="hidden">
+<br>
+Practical labs on AI services and deployment.
+</div>
 
-    <b>AWS & Google Cloud Workshop</b><br><br>
-    BigQuery, Generative AI, multi-cloud integration.
-    <br><br>
+<hr style="border:1px solid #00bfff; margin:40px 0;">
 
-    <hr style="border:1px solid #00bfff; margin:40px 0;">
-
-    <b>CyberDrill Workshop</b><br><br>
-    Hands-on cybersecurity & red/blue team strategies.
-    </p>
+<b>CyberDrill Workshop</b><br><br>
+Cybersecurity hands-on experience.<br>
+Red & Blue team strategies.<br>
+Incident response training.
+<br>
+<div class="read-more-box" onclick="toggleReadMore('cyber')">Read more</div>
+<div id="cyber" class="hidden">
+<br>
+Worked on real cyber attack-defense scenarios.
+</div>
+</p>
 </section>
 
 <section id="education">
-    <h2>Education</h2>
-    <p>Your education details here.</p>
+<h2>🎓 Education</h2>
+
+<div class="education-card">
+
+<div class="edu-item">
+<div class="edu-title">Master in Artificial Intelligence – APU, Malaysia</div>
+<div class="edu-date">2025</div>
+</div>
+
+<div class="edu-item">
+<div class="edu-title">Bachelor in Mathematics – University of Djibouti</div>
+<div class="edu-date">2020 – 2023</div>
+</div>
+
+</div>
 </section>
 
 <section id="skills">
-    <h2>Skills</h2>
-    <p>Python, Machine Learning, AI, Web Development</p>
+<h2>Skills</h2>
+<p>Python, Machine Learning, AI, Web Development</p>
 </section>
 
 <section id="languages">
-    <h2>Languages</h2>
-    <p>English, French</p>
+<h2>Languages</h2>
+<p>English, French</p>
 </section>
 
 <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: haroumadoita@gmail.com</p>
-    <input type="text" placeholder="Your full name">
-    <input type="email" placeholder="Your email address">
-    <textarea placeholder="Write your message here..."></textarea>
-    <button class="send-btn">Send Message</button>
+<h2>Contact</h2>
+<p>Email: haroumadoita@gmail.com</p>
+<input type="text" placeholder="Your full name">
+<input type="email" placeholder="Your email address">
+<textarea placeholder="Write your message here..."></textarea>
+<button class="send-btn">Send Message</button>
 </section>
 
 </body>
