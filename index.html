@@ -5,7 +5,6 @@
 <title>Cyber Portfolio</title>
 
 <style>
-/* (TON CSS RESTE EXACTEMENT LE MÊME) */
 body {
     margin: 0;
     font-family: 'Courier New', monospace;
@@ -188,51 +187,114 @@ function scrollToSection(id) {
 
 <body>
 
-<!-- NAVBAR + HERO (inchangé) -->
+<div class="navbar">
+    <div class="logo">PORTFOLIO</div>
 
-<div id="home" class="hero">
-    ...
+    <div class="right-menu">
+        <div class="lang">
+            <button>FR</button>
+            <button>EN</button>
+        </div>
+
+        <div class="menu-btn" onclick="toggleMenu()">⋮</div>
+    </div>
 </div>
 
-<!-- 🔥 SECTION MODIFIÉE UNIQUEMENT -->
+<div id="dropdown" class="dropdown">
+    <a onclick="scrollToSection('home')">Home</a>
+    <a onclick="scrollToSection('about')">About Me</a>
+    <a onclick="scrollToSection('education')">Education</a>
+    <a onclick="scrollToSection('skills')">Skills</a>
+    <a onclick="scrollToSection('languages')">Languages</a>
+    <a onclick="scrollToSection('contact')">Contact</a>
+</div>
+
+<div id="home" class="hero">
+
+    <p>// AVAILABLE FOR OPPORTUNITIES</p>
+
+    <h1>
+        <span>Hi, I'm</span><br>
+        <span class="highlight">Haroum Abdoulkader</span><br>
+        <span class="white">AI Engineer.</span>
+    </h1>
+
+    <p class="desc">
+        AI Engineer & Developer<br>
+        Specializing in AI, Machine Learning<br>
+        Based in Djibouti – Open to work
+    </p>
+
+    <div class="buttons">
+        <a href="Haroum_CV (4).pdf" download>
+            <button class="btn primary">Download Resume</button>
+        </a>
+        <button class="btn secondary">Get In Touch</button>
+    </div>
+
+    <div class="profile-card">
+        <img src="d750c891-f83e-4567-a22f-fa1bd6e1d724.jpg" class="profile-img">
+        <p class="profile-text">
+        My journey started with a background in mathematics, which led me to Artificial Intelligence and Data Science. 
+        I build intelligent systems that solve real-world problems.
+        </p>
+    </div>
+
+</div>
+
 <section id="about">
-    <h2 id="aboutText">🏆 Achievements & Experience</h2>
+    <h2>🏆 Achievements & Experience</h2>
 
     <div style="margin:30px auto; max-width:800px;">
-        <img src="AUF.jpeg" style="
-            width:100%;
-            height:250px;
-            object-fit:cover;
-            border-radius:10px;
-        ">
+        <img src="AUF.jpeg" style="width:100%; height:250px; object-fit:cover; border-radius:10px;">
     </div>
 
     <p>
-    Finale du Hackathon CEIT – AUF 2026 🌱🤖
-    <br><br>
+    <b>Hackathon CEIT – AUF 2026</b><br><br>
     AI system for climate risk assessment of heritage sites.
     <br><br>
 
     <hr style="border:1px solid #00bfff; margin:40px 0;">
 
-    <b>AI Collective Kuala Lumpur 2025</b>
-    <br><br>
+    <b>AI Collective Kuala Lumpur 2025</b><br><br>
     AI event + networking with professionals.
     <br><br>
 
     <hr style="border:1px solid #00bfff; margin:40px 0;">
 
-    <b>AWS & Google Cloud Workshop</b>
-    <br><br>
+    <b>AWS & Google Cloud Workshop</b><br><br>
     BigQuery, Generative AI, multi-cloud integration.
     <br><br>
 
     <hr style="border:1px solid #00bfff; margin:40px 0;">
 
-    <b>CyberDrill Workshop</b>
-    <br><br>
+    <b>CyberDrill Workshop</b><br><br>
     Hands-on cybersecurity & red/blue team strategies.
     </p>
+</section>
+
+<section id="education">
+    <h2>Education</h2>
+    <p>Your education details here.</p>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <p>Python, Machine Learning, AI, Web Development</p>
+</section>
+
+<section id="languages">
+    <h2>Languages</h2>
+    <p>English, French</p>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: haroumadoita@gmail.com</p>
+    <input type="text" placeholder="Your full name">
+    <input type="email" placeholder="Your email address">
+    <textarea placeholder="Write your message here..."></textarea>
+    <button class="send-btn">Send Message</button>
 </section>
 
 </body>
