@@ -12,7 +12,7 @@ body { margin:0; font-family:'Courier New', monospace; background:#020617; color
 .lang { display:flex; align-items:center; }
 .lang button { background:transparent; border:1px solid #00bfff; color:#00bfff; margin-right:10px; padding:5px 10px; cursor:pointer; }
 .menu-btn { font-size:30px; cursor:pointer; }
-.dropdown { position:absolute; top:70px; right:20px; background:#020617; border:1px solid #00bfff; display:none; flex-direction:column; }
+.dropdown { position:absolute; top:70px; right:20px; background:#020617; border:1px solid #00bfff; display:none; flex-direction:column; z-index:1000; }
 .dropdown a { padding:10px 20px; cursor:pointer; }
 .dropdown a:hover { background:#00bfff; color:black; }
 .hero { padding:20px; min-height:100vh; text-align:center; background-image: linear-gradient(#00bfff22 1px, transparent 1px), linear-gradient(90deg, #00bfff22 1px, transparent 1px); background-size:40px 40px; }
@@ -51,22 +51,18 @@ h1 { font-size:12vw; line-height:1.05; }
 </style>
 
 <script>
-function toggleMenu(){ let menu=document.getElementById("dropdown"); menu.style.display=(menu.style.display==="flex")?"none":"flex"; }
+function toggleMenu(){ let menu=document.getElementById("dropdown"); if(menu.style.display === "flex"){ menu.style.display = "none"; } else { menu.style.display = "flex"; } }
 function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:"smooth"}); }
 function toggleReadMore(id){ let el=document.getElementById(id); el.style.display=(el.style.display==="block")?"none":"block"; }
 
-// 🌐 FULL PAGE TRANSLATION SYSTEM
+// 🌐 SIMPLE FULL TRANSLATION (Google)
 function setLanguage(lang){
-
-const translations = {
-EN: {
-about: "🏆 Achievements & Experience",
-education: "🎓 Education",
-skills: "⚡ Skills",
-languages: "🌍 Languages",
-contact: "Contact",
-open: "I'M OPEN TO WORK",
-desc: "AI Engineer & Developer<br>Specializing in AI, Machine Learning<br>Based in Djibouti – Open to work"
+    if(lang === 'FR'){
+        document.body.style.direction = "ltr";
+        window.open('https://translate.google.com/translate?sl=en&tl=fr&u=' + window.location.href, '_self');
+    } else {
+        window.location.reload();
+    }
 },
 FR: {
 about: "🏆 Expériences & Réalisations",
